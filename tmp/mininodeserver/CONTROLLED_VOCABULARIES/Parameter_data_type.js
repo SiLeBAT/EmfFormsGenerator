@@ -1,0 +1,1 @@
+window.Parameter_data_type = ["Value","Boolean","Date","Double","Event","File","Fitting procedure","Integer","Matrix[number number]","Matrix[string string]","Number","Object","Quality measures","RIS","String","VCard","Vector[number]","Vector[string]"]

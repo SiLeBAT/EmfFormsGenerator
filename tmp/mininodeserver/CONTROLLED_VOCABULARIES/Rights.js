@@ -1,0 +1,1 @@
+window.Rights = ["Value","by","by-nc","by-nc-nd","by-nc-sa","by-nd","by-sa","CC0","Other"]

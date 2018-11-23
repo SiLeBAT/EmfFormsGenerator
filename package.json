@@ -1,0 +1,40 @@
+{
+  "name": "react-server-example",
+  "version": "1.2.6",
+  "description": "A very simple implementation of server-side React rendering",
+  "main": "server.js",
+  "repository": "mhart/react-server-example",
+  "keywords": [
+    "react",
+    "reactjs",
+    "server",
+    "server-side"
+  ],
+  "author": "Ahmad Swaid <ahmad.swaid@bfr.bund.de>",
+  "license": "MIT",
+  "dependencies": {
+    "@jsonforms/core": "^2.0.0",
+    "@jsonforms/examples": "^2.0.0-rc.4",
+    "@jsonforms/material-renderers": "^2.0.0",
+    "@jsonforms/react": "^2.0.12-rc.3",
+    "@jsonforms/webcomponent": "^2.0.12-rc.3",
+    "babel-polyfill": "^6.26.0",
+    "lodash": "^4.17.11",
+    "json-refs": "",
+    "@material-ui/core":"",
+    "keycode":"",
+    "react-event-listener":"",
+    "browserify": "^14.0.0",
+    "create-react-class": "^15.6.3",
+    "literalify": "^0.4.0",
+    "minifyify": "^7.3.5",
+    "node-minify": "^2.4.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-dom-factories": "^1.0.2",
+    "concat-files":"^0.1.1",
+    "react-redux":"^5.1.1",
+    "redux":"^4.0.1"
+  }
+ 
+}

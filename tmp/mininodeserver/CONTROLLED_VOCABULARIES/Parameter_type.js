@@ -1,0 +1,1 @@
+window.Parameter_type = ["Value","Concentration","None","Number","Other","Prevalence"]

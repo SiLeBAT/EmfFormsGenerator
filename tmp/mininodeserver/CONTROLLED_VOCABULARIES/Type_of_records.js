@@ -1,0 +1,1 @@
+window.Type_of_records = ["Value","Consumption occasion","Mean of consumption","Other","Quantified and described as eaten","Recipes for self-made"]

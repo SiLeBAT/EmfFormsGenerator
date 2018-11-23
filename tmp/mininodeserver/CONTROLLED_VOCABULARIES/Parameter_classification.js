@@ -1,0 +1,1 @@
+window.Parameter_classification = ["Value","Constant","Input","Output"]

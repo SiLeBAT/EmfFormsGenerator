@@ -1,0 +1,30 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "label": "Study",
+      "scope": "#/properties/study"
+    },
+    {
+      "type": "Control",
+      "label": "Study Sample",
+      "scope": "#/properties/studySample"
+    },
+    {
+      "type": "Control",
+      "label": "Dietary Assessment Method",
+      "scope": "#/properties/dietaryAssessmentMethod"
+    },
+    {
+      "type": "Control",
+      "label": "Laboratory",
+      "scope": "#/properties/laboratory"
+    },
+    {
+      "type": "Control",
+      "label": "Assay",
+      "scope": "#/properties/assay"
+    }
+  ]
+}

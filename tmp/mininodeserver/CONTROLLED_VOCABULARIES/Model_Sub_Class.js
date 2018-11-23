@@ -1,0 +1,1 @@
+window.Model_Sub_Class = ["(Data)","Value"]

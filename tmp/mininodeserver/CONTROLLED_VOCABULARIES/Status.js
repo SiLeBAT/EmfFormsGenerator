@@ -1,0 +1,1 @@
+window.Status = ["Value","Curated","Other","Uncurated"]

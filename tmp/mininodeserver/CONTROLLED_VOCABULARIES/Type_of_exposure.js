@@ -1,0 +1,1 @@
+window.Type_of_exposure = ["Value","Acute","Chronic","Other","Subacute","Subchronic"]

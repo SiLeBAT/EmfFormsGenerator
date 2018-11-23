@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\GIT\\FSK-Lab\\java2node\\tmp\\mininodeserver\\node\\node.exe',
+1 verbose cli   'D:\\GIT\\FSK-Lab\\java2node\\tmp\\mininodeserver\\node\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'D:\\GIT\\FSK-Lab\\java2node/tmp/mininodeserver',
+1 verbose cli   '--https-proxy=http://172.27.13.10:3128',
+1 verbose cli   '--proxy=http://172.27.13.10:3128' ]
+2 info using npm@4.0.0
+3 info using node@v5.7.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData D:\GIT\FSK-Lab\java2node/tmp/mininodeserver
+8 silly fetchOtherPackageData D:\GIT\FSK-Lab\java2node/tmp/mininodeserver
+9 silly cache add args [ 'D:\\GIT\\FSK-Lab\\java2node/tmp/mininodeserver', null ]
+10 verbose cache add spec D:\GIT\FSK-Lab\java2node/tmp/mininodeserver
+11 silly cache add parsed spec Result {
+11 silly cache add   raw: 'D:\\GIT\\FSK-Lab\\java2node/tmp/mininodeserver',
+11 silly cache add   scope: null,
+11 silly cache add   escapedName: null,
+11 silly cache add   name: null,
+11 silly cache add   rawSpec: 'D:\\GIT\\FSK-Lab\\java2node/tmp/mininodeserver',
+11 silly cache add   spec: 'D:\\GIT\\FSK-Lab\\java2node\\tmp\\mininodeserver',
+11 silly cache add   type: 'local' }
+12 error addLocal Could not install D:\GIT\FSK-Lab\java2node\tmp\mininodeserver
+13 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+13 silly fetchPackageMetaData     at Error (native)
+13 silly fetchPackageMetaData  error for D:\GIT\FSK-Lab\java2node/tmp/mininodeserver { [Error: EISDIR: illegal operation on a directory, read] errno: -4068, code: 'EISDIR', syscall: 'read' }
+14 silly rollbackFailedOptional Starting
+15 silly rollbackFailedOptional Finishing
+16 silly runTopLevelLifecycles Finishing
+17 silly install printInstalled
+18 verbose stack Error: EISDIR: illegal operation on a directory, read
+18 verbose stack     at Error (native)
+19 verbose cwd D:\GIT\FSK-Lab\java2node\tmp\mininodeserver
+20 error Windows_NT 6.1.7601
+21 error argv "D:\\GIT\\FSK-Lab\\java2node\\tmp\\mininodeserver\\node\\node.exe" "D:\\GIT\\FSK-Lab\\java2node\\tmp\\mininodeserver\\node\\node_modules\\npm\\bin\\npm-cli.js" "install" "D:\\GIT\\FSK-Lab\\java2node/tmp/mininodeserver" "--https-proxy=http://172.27.13.10:3128" "--proxy=http://172.27.13.10:3128"
+22 error node v5.7.0
+23 error npm  v4.0.0
+24 error code EISDIR
+25 error errno -4068
+26 error syscall read
+27 error eisdir EISDIR: illegal operation on a directory, read
+28 error eisdir This is most likely not a problem with npm itself
+28 error eisdir and is related to npm not being able to find a package.json in
+28 error eisdir a package you are trying to install.
+29 verbose exit [ -4068, true ]

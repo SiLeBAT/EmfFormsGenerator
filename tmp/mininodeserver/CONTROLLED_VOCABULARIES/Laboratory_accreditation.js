@@ -1,0 +1,1 @@
+window.Laboratory_accreditation = ["Value","Accredited","None","Other","Third party assessment"]

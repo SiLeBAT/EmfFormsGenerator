@@ -1,0 +1,1 @@
+{"additionalProperties":false,"type":"object","properties":{"country":{"additionalProperties":false,"type":"array","items":{"type":"object","properties":{"value":{"type":"string"}}}},"region":{"type":"array","items":{"additionalProperties":false,"type":"object","properties":{"value":{"type":"string"}}}}}}

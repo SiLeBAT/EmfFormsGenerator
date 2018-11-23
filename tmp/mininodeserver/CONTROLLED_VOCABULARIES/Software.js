@@ -1,0 +1,1 @@
+window.Software = ["Value","@Risk","FSK-Lab","FSSP","ICRA","Matlab","MicroHibro","Other","PMM-Lab","R"]

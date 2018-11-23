@@ -1,0 +1,1 @@
+window.Sampling_strategy = ["Value","Census","Convenient sampling","Not specified","Objective sampling","Other","Selective sampling","Suspect sampling"]
