@@ -12,11 +12,13 @@ import com.eclipsesource.v8.V8Array;
 import com.eclipsesource.v8.V8Object;
 
 public class NodePackagesInstaller {
-	
+
 	static Properties props = new Properties();
+
 	public static void main(String[] args) throws IOException {
-		System.out.println("For the first run, the application will try to get the packages used to build the final library\n"
-				+ "This may takes a while");
+		System.out.println(
+				"For the first run, the application will try to get the packages used to build the final library\n"
+						+ "This may takes a while");
 		File configFile = new File("./config.properties");
 		FileReader reader = new FileReader(configFile);
 		String finaleOutput = "";
@@ -26,20 +28,19 @@ public class NodePackagesInstaller {
 		JavaCallback callback = new JavaCallback() {
 
 			public Object invoke(V8Object receiver, V8Array parameters) {
-				return "Hello, JavaWorld!";
+				return "";
 			}
 		};
 		nodeJS.getRuntime().registerJavaMethod(callback, "someJavaMethod");
-		File packagesScript = new File(finaleOutput+"packages.js");
-		
+		File packagesScript = new File(finaleOutput + "packages.js");
 
 		nodeJS.exec(packagesScript);
 		while (nodeJS.isRunning()) {
 			nodeJS.handleMessage();
 		}
-		
+
 		System.out.println("done");
-		
+
 		nodeJS.release();
 		App.main(args);
 	}
