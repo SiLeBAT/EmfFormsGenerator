@@ -8,13 +8,13 @@
     },
     {
       "type": "Control",
-      "label": "Study Sample",
-      "scope": "#/properties/studySample"
+      "label": "Studysample",
+      "scope": "#/properties/studysample"
     },
     {
       "type": "Control",
-      "label": "Dietary Assessment Method",
-      "scope": "#/properties/dietaryAssessmentMethod"
+      "label": "Dietaryassessmentmethod",
+      "scope": "#/properties/dietaryassessmentmethod"
     },
     {
       "type": "Control",

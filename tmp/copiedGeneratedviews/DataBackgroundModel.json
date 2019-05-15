@@ -58,7 +58,7 @@
         "studyTitle"
       ]
     },
-    "studySample": {
+    "studysample": {
       "type": "array",
       "items": {
         "type": "object",
@@ -104,59 +104,53 @@
         ]
       }
     },
-    "dietaryAssessmentMethod": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "collectionTool": {
-            "type": "string"
-          },
-          "numberOfNonConsecutiveOneDay": {
-            "type": "integer"
-          },
-          "softwareTool": {
-            "type": "string"
-          },
-          "numberOfFoodItems": {
-            "type": "string"
-          },
-          "recordTypes": {
-            "type": "string"
-          },
-          "foodDescriptors": {
-            "type": "string"
-          }
+    "dietaryassessmentmethod": {
+      "type": "object",
+      "properties": {
+        "collectionTool": {
+          "type": "string"
         },
-        "additionalProperties": false
-      }
+        "numberOfNonConsecutiveOneDay": {
+          "type": "integer"
+        },
+        "softwareTool": {
+          "type": "string"
+        },
+        "numberOfFoodItems": {
+          "type": "string"
+        },
+        "recordTypes": {
+          "type": "string"
+        },
+        "foodDescriptors": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     },
     "laboratory": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "laboratoryName": {
-            "type": "string"
-          },
-          "laboratoryCountry": {
-            "type": "string"
-          },
-          "laboratoryAccreditation": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "value": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            }
-          }
+      "type": "object",
+      "properties": {
+        "laboratoryName": {
+          "type": "string"
         },
-        "additionalProperties": false
-      }
+        "laboratoryCountry": {
+          "type": "string"
+        },
+        "laboratoryAccreditation": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
     },
     "assay": {
       "type": "array",

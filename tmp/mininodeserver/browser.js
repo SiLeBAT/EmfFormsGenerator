@@ -20,8 +20,8 @@
     window.schema4 = require('./HazardModel.json');
     window.uischema4 = require('./HazardView.json');
     
-    var schema5 = require('./PopulationGroupModel.json');
-    var uischema5 = require('./PopulationGroupView.json');
+    window.schema5 = require('./PopulationGroupModel.json');
+    window.uischema5 = require('./PopulationGroupView.json');
     
 
     //DATA Background
@@ -31,8 +31,8 @@
     window.schema7 = require('./StudyModel.json');
     window.uischema7 = require('./StudyView.json');
     
-    var schema8 = require('./StudySampleModel.json');
-    var uischema8 = require('./StudySampleView.json');
+    window.schema8 = require('./StudySampleModel.json');
+    window.uischema8 = require('./StudySampleView.json');
     
     window.schema9 = require('./DietaryAssessmentMethodModel.json');
     window.uischema9 = require('./DietaryAssessmentMethodView.json')
@@ -183,7 +183,7 @@ window.toBeReplacedMap["Study"] = window.store7;
 		    }
 		  }
 		);
-store8.dispatch(Actions.init(window.dataBackground.studySample, schema8, uischema8));
+store8.dispatch(Actions.init(window.dataBackground.studySample, window.schema8, window.uischema8));
   window.store9 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
 		  {
@@ -1440,7 +1440,7 @@ window.store5 = createStore(
 		    }
 		  }
 		);
-window.store5.dispatch(Actions.init({}, schema5, uischema5));
+window.store5.dispatch(Actions.init({}, window.schema5, window.uischema5));
 window.store5.getState().jsonforms.core.data.populationName = window.store5.getState().jsonforms.core.data.populationName != null ?window.store5.getState().jsonforms.core.data.populationName:"";
 window.store5.getState().jsonforms.core.data.targetPopulation = window.store5.getState().jsonforms.core.data.targetPopulation != null ?window.store5.getState().jsonforms.core.data.targetPopulation:"";
 

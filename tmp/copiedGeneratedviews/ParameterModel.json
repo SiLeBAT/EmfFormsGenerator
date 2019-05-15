@@ -7,10 +7,9 @@
     "parameterClassification": {
       "type": "string",
       "enum": [
-        "null",
-        "Constant",
-        "Input",
-        "Output"
+        "constant",
+        "input",
+        "output"
       ]
     },
     "parameterName": {
@@ -31,7 +30,6 @@
     "parameterDataType": {
       "type": "string",
       "enum": [
-        "null",
         "Integer",
         "Double",
         "Number",
@@ -43,8 +41,7 @@
         "MatrixOfNumbers",
         "MatrixOfStrings",
         "Object",
-        "Other",
-        "String"
+        "Other"
       ]
     },
     "parameterSource": {
@@ -80,7 +77,6 @@
         "publicationType": {
           "type": "string",
           "enum": [
-            "null",
             "ABST",
             "ADVS",
             "AGGR",

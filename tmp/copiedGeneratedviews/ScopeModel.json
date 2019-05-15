@@ -110,37 +110,34 @@
       }
     },
     "populationGroup": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "populationName": {
-            "type": "string"
-          },
-          "targetPopulation": {
-            "type": "string"
-          },
-          "populationSpan": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "value": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
-            }
-          },
-          "populationGender": {
-            "type": "string"
+      "type": "object",
+      "properties": {
+        "populationName": {
+          "type": "string"
+        },
+        "targetPopulation": {
+          "type": "string"
+        },
+        "populationSpan": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
           }
         },
-        "additionalProperties": false,
-        "required": [
-          "populationName"
-        ]
-      }
+        "populationGender": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "populationName"
+      ]
     },
     "spatialInformation": {
       "type": "object",
@@ -148,5 +145,8 @@
       "additionalProperties": false
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "required": [
+    "populationGroup"
+  ]
 }

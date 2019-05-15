@@ -7,7 +7,6 @@
     "publicationType": {
       "type": "string",
       "enum": [
-        "null",
         "ABST",
         "ADVS",
         "AGGR",
@@ -41,7 +40,6 @@
         "HEAR",
         "ICOMM",
         "INPR",
-        "JOUR",
         "JFULL",
         "LEGAL",
         "MANSCPT",

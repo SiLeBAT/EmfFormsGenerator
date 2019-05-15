@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.org/GenericModel1.0.3"
+        xmlns:tns="http://www.example.org/GenericModel1.0.3"
+        elementFormDefault="qualified">
+
+    <complexType name="Assay">
+        <sequence>
+            <element name="Name" type="string"/>
+            <element name="Description" type="string" minOccurs="0"/>
+            <element name="MoisturePercentage" type="string"
+                     minOccurs="0"/>
+            <element name="FatPercentage" type="string" minOccurs="0"/>
+            <element name="DetectionLimit" type="string" minOccurs="0"/>
+            <element name="QuantificationLimit" type="string"
+                     minOccurs="0"/>
+            <element name="LeftCensoredData" type="string"
+                     minOccurs="0"/>
+            <element name="ContaminationRange" type="string"
+                     minOccurs="0"/>
+            <element name="UncertaintyValue" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Contact">
+        <sequence>
+            <element name="Title" type="string" minOccurs="0"/>
+            <element name="FamilyName" type="string" minOccurs="0"/>
+            <element name="GivenName" type="string" minOccurs="0"/>
+            <element name="Email" type="string"/>
+            <element name="Telephone" type="string" minOccurs="0"/>
+            <element name="StreetAddress" type="string" minOccurs="0"/>
+            <element name="Country" type="string" minOccurs="0"/>
+            <element name="City" type="string" minOccurs="0"/>
+            <element name="ZipCode" type="string" minOccurs="0"/>
+            <element name="Region" type="string" minOccurs="0"/>
+            <element name="Timezone" type="string" minOccurs="0"/>
+            <element name="Gender" type="string" minOccurs="0"/>
+            <element name="Note" type="string" minOccurs="0"/>
+            <element name="Organization" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Exposure">
+        <sequence>
+            <element name="Type" type="string"/>
+            <element name="UncertaintyEstimation" type="string"
+                     minOccurs="0"/>
+            <element name="MethodologicalTreatmentOfLeftCensoredData"
+                     type="string" minOccurs="0" maxOccurs="unbounded"/>
+            <element
+                    name="LevelOfContaminationAfterLeftCensoredDataTreatment"
+                    type="string" minOccurs="0" maxOccurs="unbounded"/>
+            <element name="Scenario" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Hazard">
+        <sequence>
+            <element name="Type" type="string" minOccurs="0"/>
+            <element name="Name" type="string"/>
+            <element name="Description" type="string" minOccurs="0"/>
+            <element name="Unit" type="string" minOccurs="0"/>
+            <element name="AdverseEffect" type="string" minOccurs="0"/>
+            <element name="SourceOfContamination" type="string"
+                     minOccurs="0"/>
+            <element name="BenchmarkDose" type="string" minOccurs="0"/>
+            <element name="MaximumResidueLimit" type="string"
+                     minOccurs="0"/>
+            <element name="NoObservedAdverseAffectLevel" type="string"
+                     minOccurs="0"/>
+            <element name="LowestObservedAdverseAffectLevel"
+                     type="string" minOccurs="0"/>
+            <element name="AcceptableOperatorExposureLevel"
+                     type="string" minOccurs="0"/>
+            <element name="AcuteReferenceDose" type="string"
+                     minOccurs="0"/>
+            <element name="AcceptableDailyIntake" type="string"
+                     minOccurs="0"/>
+            <element name="IndSum" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Laboratory">
+        <sequence>
+            <element name="Accreditation" type="string" minOccurs="0"/>
+            <element name="Name" type="string" minOccurs="0"/>
+            <element name="Country" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ModelEquation">
+        <sequence>
+            <element name="Name" type="string"/>
+            <element name="Class" type="string" minOccurs="0"/>
+            <element name="ModelEquation" type="string"/>
+            <element name="Reference" type="tns:Reference"
+                     minOccurs="0" maxOccurs="unbounded"/>
+            <element name="ModelHypothesis" type="string"
+                     minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="ModelCategory">
+        <sequence>
+            <element name="ModelClass" type="string"/>
+            <element name="ModelSubClass" type="string" minOccurs="0"/>
+            <element name="ModelClassComment" type="string"
+                     minOccurs="0"/>
+            <element name="BasicProcess" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Parameter">
+        <sequence>
+            <element name="Id" type="string"/>
+            <element name="Classification">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="constant"/>
+                        <enumeration value="input"/>
+                        <enumeration value="output"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="Name" type="string"/>
+            <element name="Description" type="string" minOccurs="0"/>
+            <element name="Unit" type="string"/>
+            <element name="UnitCategory" type="string" minOccurs="0"/>
+            <element name="DataType" minOccurs="0">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="integer"/>
+                        <enumeration value="double"/>
+                        <enumeration value="number"/>
+                        <enumeration value="date"/>
+                        <enumeration value="file"/>
+                        <enumeration value="boolean"/>
+                        <enumeration value="vectorOfNumbers"/>
+                        <enumeration value="vectorOfStrings"/>
+                        <enumeration value="matrixOfNumbers"/>
+                        <enumeration value="matrixOfStrings"/>
+                        <enumeration value="object"/>
+                        <enumeration value="string"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="Source" type="string" minOccurs="0"/>
+            <element name="Subject" type="string" minOccurs="0"/>
+            <element name="Distribution" type="string" minOccurs="0"/>
+            <element name="Value" type="string" minOccurs="0"/>
+            <element name="Reference" type="tns:Reference"
+                     minOccurs="0" maxOccurs="unbounded"/>
+            <element name="VariabilitySubject" type="string"
+                     minOccurs="0"/>
+            <element name="MinValue" type="string" minOccurs="0"/>
+            <element name="MaxValue" type="string" minOccurs="0"/>
+            <element name="Error" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="PopulationGroup">
+        <sequence>
+            <element name="Name" type="string"/>
+            <element name="TargetPopulation" type="string"
+                     minOccurs="0"/>
+            <element name="PopulationSpan" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <element name="PopulationDescription" type="string"
+                     minOccurs="0" maxOccurs="unbounded"/>
+            <element name="PopulationAge" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <element name="PopulationGender" type="string"
+                     minOccurs="0"/>
+            <element name="BMI" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <element name="SpecialDietGroups" type="string"
+                     minOccurs="0" maxOccurs="unbounded"/>
+            <element name="PatternConsumption" type="string"
+                     minOccurs="0" maxOccurs="unbounded"/>
+            <element name="Region" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <element name="Country" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <element name="PopulationRiskFactor" type="string"
+                     minOccurs="0" maxOccurs="unbounded"/>
+            <element name="Season" type="string" minOccurs="0"
+                     maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="QualityMeasures">
+        <sequence>
+            <element name="SSE" type="double" minOccurs="0"/>
+            <element name="MSE" type="double" minOccurs="0"/>
+            <element name="RMSE" type="double" minOccurs="0"/>
+            <element name="RSquared" type="double" minOccurs="0"/>
+            <element name="AIC" type="double" minOccurs="0"/>
+            <element name="BIC" type="double" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Reference">
+        <sequence>
+            <element name="IsReferenceDescription" type="boolean"/>
+            <element name="Type" minOccurs="0"> <!-- TODO: Restrict to set of values -->
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="ABST"/>
+                        <enumeration value="ADVS"/>
+                        <enumeration value="AGGR"/>
+                        <enumeration value="ANCIENT"/>
+                        <enumeration value="ART"/>
+                        <enumeration value="BILL"/>
+                        <enumeration value="BLOG"/>
+                        <enumeration value="BOOK"/>
+                        <enumeration value="CASE"/>
+                        <enumeration value="CHAP"/>
+                        <enumeration value="CHART"/>
+                        <enumeration value="CLSWK"/>
+                        <enumeration value="COMP"/>
+                        <enumeration value="CONF"/>
+                        <enumeration value="CPAPER"/>
+                        <enumeration value="CTLG"/>
+                        <enumeration value="DATA"/>
+                        <enumeration value="DBASE"/>
+                        <enumeration value="DICT"/>
+                        <enumeration value="EBOOK"/>
+                        <enumeration value="ECHAP"/>
+                        <enumeration value="EDBOOK"/>
+                        <enumeration value="EJOUR"/>
+                        <enumeration value="ELECT"/>
+                        <enumeration value="ENCYC"/>
+                        <enumeration value="EQUA"/>
+                        <enumeration value="FIGURE"/>
+                        <enumeration value="GEN"/>
+                        <enumeration value="GOVDOC"/>
+                        <enumeration value="GRANT"/>
+                        <enumeration value="HEAR"/>
+                        <enumeration value="ICOMM"/>
+                        <enumeration value="INPR"/>
+                        <enumeration value="JOUR"/>
+                        <enumeration value="JFULL"/>
+                        <enumeration value="LEGAL"/>
+                        <enumeration value="MANSCPT"/>
+                        <enumeration value="MAP"/>
+                        <enumeration value="MGZN"/>
+                        <enumeration value="MPCT"/>
+                        <enumeration value="MULTI"/>
+                        <enumeration value="MUSIC"/>
+                        <enumeration value="NEW"/>
+                        <enumeration value="PAMP"/>
+                        <enumeration value="PAT"/>
+                        <enumeration value="PCOMM"/>
+                        <enumeration value="RPRT"/>
+                        <enumeration value="SER"/>
+                        <enumeration value="SLIDE"/>
+                        <enumeration value="SOUND"/>
+                        <enumeration value="STAND"/>
+                        <enumeration value="STAT"/>
+                        <enumeration value="THES"/>
+                        <enumeration value="UNPB"/>
+                        <enumeration value="VIDEO"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="Date" type="string" minOccurs="0"/>
+            <element name="Pmid" type="string" minOccurs="0"/>
+            <element name="Doi" type="string" minOccurs="0"/>
+            <element name="AuthorList" type="string" minOccurs="0"/>
+            <element name="Title" type="string"/>
+            <element name="Abstract" type="string" minOccurs="0"/>
+            <element name="Journal" type="string" minOccurs="0"/>
+            <element name="Volume" type="int" minOccurs="0"/>
+            <element name="Issue" type="int" minOccurs="0"/>
+            <element name="Status" type="string" minOccurs="0"/>
+            <element name="Website" type="string" minOccurs="0"/>
+            <element name="Comment" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="SpatialInformation">
+        <sequence>
+            <element name="Region" type="string" minOccurs="0"/>
+            <element name="Country" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Study">
+        <sequence>
+            <element name="Identifier" type="string" minOccurs="0"/>
+            <element name="Title" type="string"/>
+            <element name="Description" type="string" minOccurs="0"/>
+            <element name="DesignType" type="string" minOccurs="0"/>
+            <element name="AssayMeasurementType" type="string"
+                     minOccurs="0"/>
+            <element name="AssayTechnologyType" type="string"
+                     minOccurs="0"/>
+            <element name="AssayTechnologyPlatform" type="string"
+                     minOccurs="0"/>
+            <element name="AssayTechnologyTypePlatform" type="string"
+                     minOccurs="0"/>
+            <element
+                    name="AccreditationProcedureForTheAssayTechnology"
+                    type="string"
+                    minOccurs="0"/>
+            <element name="ProtocolName" type="string" minOccurs="0"/>
+            <element name="ProtocolType" type="string" minOccurs="0"/>
+            <element name="ProtocolDescription" type="string"
+                     minOccurs="0"/>
+            <element name="ProtocolURI" type="string" minOccurs="0"/>
+            <element name="ProtocolVersion" type="string"
+                     minOccurs="0"/>
+            <element name="ProtocolParametersName" type="string"
+                     minOccurs="0"/>
+            <element name="ProtocolComponentsName" type="string" minOccurs="0"/>
+            <element name="ProtocolComponentsType" type="string"
+                     minOccurs="0"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="StudySample">
+        <sequence>
+            <element name="SampleName" type="string"/>
+            <element name="ProtocolOfSampleCollection" type="string"/>
+            <element name="SamplingStrategy" type="string"
+                     minOccurs="0"/>
+            <element name="TypeOfSamplingProgram" type="string"
+                     minOccurs="0"/>
+            <element name="SamplingMethod" type="string" minOccurs="0"/>
+            <element name="SamplingPlan" type="string"/>
+            <element name="SamplingWeight" type="string"/>
+            <element name="SamplingSize" type="string"/>
+            <element name="LotSizeUnit" type="string" minOccurs="0"/>
+            <element name="SamplingPoint" type="string"/>
+        </sequence>
+    </complexType>
+
+    <element name="Document">
+        <complexType>
+            <choice>
+                <element name="GenericModel">
+                    <complexType>
+                        <sequence>
+                            <element name="GeneralInformation">
+                                <complexType>
+                                    <sequence>
+                                        <element name="Name" type="string"/>
+                                        <element name="Source" type="string" minOccurs="0"/>
+                                        <element name="Identifier" type="string"/>
+                                        <element name="Author" type="tns:Contact"/>
+                                        <element name="Creator" type="tns:Contact" minOccurs="0" maxOccurs="unbounded"/>
+                                        <element name="CreationDate" type="date"/>
+                                        <element name="ModificationDate" type="date" minOccurs="0"/>
+                                        <element name="Rights" type="string"/>
+                                        <element name="Available" type="boolean" minOccurs="0"/>
+                                        <element name="Format" type="string" minOccurs="0"/>
+                                        <element name="Reference" type="tns:Reference" maxOccurs="unbounded"/>
+                                        <element name="Language" type="string" minOccurs="0"/>
+                                        <element name="Software" type="string" minOccurs="0"/>
+                                        <element name="LanguageWrittenIn" type="string" minOccurs="0"/>
+                                        <element name="ModelCategory" type="tns:ModelCategory" minOccurs="0"/>
+                                        <element name="Status" type="string" minOccurs="0"/>
+                                        <element name="Objective" type="string" minOccurs="0"/>
+                                        <element name="Description" type="string" minOccurs="0"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="Scope" minOccurs="0">
+                                <complexType>
+                                    <sequence>
+                                        <element name="Product" minOccurs="0" maxOccurs="unbounded">
+                                            <complexType>
+                                                <sequence>
+                                                    <element name="Name" type="string"/>
+                                                    <element name="Description" type="string" minOccurs="0"/>
+                                                    <element name="Unit" type="string" minOccurs="0"/>
+                                                    <element name="Method" type="string" minOccurs="0"/>
+                                                    <element name="Packaging" type="string" minOccurs="0"/>
+                                                    <element name="Treatment" type="string" minOccurs="0"/>
+                                                    <element name="OriginCountry" type="string" minOccurs="0"/>
+                                                    <element name="OriginArea" type="string" minOccurs="0"/>
+                                                    <element name="FisheriesArea" type="string" minOccurs="0"/>
+                                                    <element name="ProductionDate" type="date" minOccurs="0"/>
+                                                    <element name="ExpiryDate" type="date" minOccurs="0"/>
+                                                </sequence>
+                                            </complexType>
+                                        </element>
+                                        <element name="Hazard" type="tns:Hazard" minOccurs="0" maxOccurs="unbounded"/>
+                                        <element name="PopulationGroup" type="tns:PopulationGroup" minOccurs="0"
+                                                 maxOccurs="unbounded"/>
+                                        <element name="GeneralComment" type="string" minOccurs="0"/>
+                                        <element name="TemporalInformation" type="string"
+                                                 minOccurs="0"/>
+                                        <element name="SpatialInformation" type="tns:SpatialInformation" minOccurs="0"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="DataBackground" minOccurs="0">
+                                <complexType>
+                                    <sequence>
+                                        <element name="Study" type="tns:Study" minOccurs="0"/>
+                                        <element name="StudySample" type="tns:StudySample" minOccurs="0"
+                                                 maxOccurs="unbounded"/>
+                                        <element name="DietaryAssessmentMethod" minOccurs="0" maxOccurs="unbounded">
+                                            <complexType>
+                                                <sequence>
+                                                    <element name="CollectionTool" type="string" minOccurs="0"/>
+                                                    <element name="NumberOfNonConsecutiveOneDay" type="string"
+                                                             minOccurs="0"/>
+                                                    <element name="SoftwareTool" type="string" minOccurs="0"/>
+                                                    <element name="NumberOfFoodItems" type="string"
+                                                             minOccurs="0"/>
+                                                    <element name="RecordTypes" type="string" minOccurs="0"/>
+                                                    <element name="FoodDescriptors" type="string"
+                                                             minOccurs="0"/>
+                                                </sequence>
+                                            </complexType>
+                                        </element>
+                                        <element name="Laboratory" type="tns:Laboratory" minOccurs="0"
+                                                 maxOccurs="unbounded"/>
+                                        <element name="Assay" type="tns:Assay" minOccurs="0" maxOccurs="unbounded"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="ModelMath" minOccurs="0">
+                                <complexType>
+                                    <sequence>
+                                        <element name="Parameter" type="tns:Parameter" maxOccurs="unbounded"/>
+                                        <element name="QualityMeasures" type="tns:QualityMeasures" minOccurs="0"/>
+                                        <element name="ModelEquation" type="tns:ModelEquation" minOccurs="0" />
+                                        <element name="FittingProcedure" type="string" minOccurs="0"/>
+                                        <element name="Exposure" type="tns:Exposure" minOccurs="0"/>
+                                        <element name="Event" type="string" minOccurs="0"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+                <element name="DoseResponseModel">
+                    <complexType>
+                        <sequence>
+                            <element name="GeneralInformation">
+                                <complexType>
+                                    <sequence>
+                                        <element name="ModelName" type="string"/>
+                                        <element name="Source" type="string" minOccurs="0"/>
+                                        <element name="Identifier" type="string"/>
+                                        <element name="Author" type="tns:Contact" minOccurs="0" maxOccurs="unbounded"/>
+                                        <element name="Creator" type="tns:Contact" maxOccurs="unbounded"/>
+                                        <element name="CreationDate" type="date"/>
+                                        <element name="ModificationDate" type="date" minOccurs="0"
+                                                 maxOccurs="unbounded"/>
+                                        <element name="Rights" type="string"/>
+                                        <element name="Available" type="boolean" minOccurs="0"/>
+                                        <element name="Format" type="string" minOccurs="0"/>
+                                        <element name="Reference" type="tns:Reference" maxOccurs="unbounded"/>
+                                        <element name="Language" type="string" minOccurs="0"/>
+                                        <element name="Software" type="string" minOccurs="0"/>
+                                        <element name="LanguageWrittenIn" type="string"/>
+                                        <element name="ModelCategory" type="tns:ModelCategory" minOccurs="0"/>
+                                        <element name="Status" type="string" minOccurs="0"/>
+                                        <element name="Objective" type="string" minOccurs="0"/>
+                                        <element name="Description" type="string" minOccurs="0"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="Scope">
+                                <complexType>
+                                    <sequence>
+                                        <element name="Hazard" type="tns:Hazard" maxOccurs="unbounded"/>
+                                        <element name="PopulationGroup" type="tns:PopulationGroup"
+                                                 maxOccurs="unbounded"/>
+                                        <element name="GeneralComment" type="string" minOccurs="0"/>
+                                        <element name="TemporalInformation" type="string"
+                                                 minOccurs="0"/>
+                                        <element name="SpatialInformation" type="tns:SpatialInformation" minOccurs="0"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="DataBackground">
+                                <complexType>
+                                    <sequence>
+                                        <element name="Study" type="tns:Study"/>
+                                        <element name="StudySample" type="tns:StudySample" minOccurs="0"
+                                                 maxOccurs="unbounded"/>
+                                        <element name="Laboratory" type="tns:Laboratory" minOccurs="0"
+                                                 maxOccurs="unbounded"/>
+                                        <element name="Assay" type="tns:Assay" minOccurs="0" maxOccurs="unbounded"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                            <element name="ModelMath">
+                                <complexType>
+                                    <sequence>
+                                        <element name="Parameter" type="tns:Parameter" maxOccurs="unbounded"/>
+                                        <element name="QualityMeasures" type="tns:QualityMeasures" minOccurs="0"/>
+                                        <element name="ModelEquation" type="tns:ModelEquation" minOccurs="0" />
+                                        <element name="FittingProcedure" type="string" minOccurs="0"/>
+                                        <element name="Exposure" type="tns:Exposure" minOccurs="0" />
+                                        <element name="Event" type="string" minOccurs="0"/>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </choice>
+        </complexType>
+    </element>
+</schema>

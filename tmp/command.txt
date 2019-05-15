@@ -1,0 +1,1 @@
+java -jar jsonix-schema-compiler-2.3.9.jar GenericModel1.0.3.xsd

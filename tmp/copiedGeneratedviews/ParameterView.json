@@ -3,87 +3,87 @@
   "elements": [
     {
       "type": "Control",
-      "label": "Parameter ID",
+      "label": "parameterID",
       "scope": "#/properties/parameterID"
     },
     {
       "type": "Control",
-      "label": "Parameter Classification",
+      "label": "parameterClassification",
       "scope": "#/properties/parameterClassification"
     },
     {
       "type": "Control",
-      "label": "Parameter Name",
+      "label": "parameterName",
       "scope": "#/properties/parameterName"
     },
     {
       "type": "Control",
-      "label": "Parameter Description",
+      "label": "parameterDescription",
       "scope": "#/properties/parameterDescription"
     },
     {
       "type": "Control",
-      "label": "Parameter Type",
+      "label": "parameterType",
       "scope": "#/properties/parameterType"
     },
     {
       "type": "Control",
-      "label": "Parameter Unit",
+      "label": "parameterUnit",
       "scope": "#/properties/parameterUnit"
     },
     {
       "type": "Control",
-      "label": "Parameter Unit Category",
+      "label": "parameterUnitCategory",
       "scope": "#/properties/parameterUnitCategory"
     },
     {
       "type": "Control",
-      "label": "Parameter Data Type",
+      "label": "parameterDataType",
       "scope": "#/properties/parameterDataType"
     },
     {
       "type": "Control",
-      "label": "Parameter Source",
+      "label": "parameterSource",
       "scope": "#/properties/parameterSource"
     },
     {
       "type": "Control",
-      "label": "Parameter Subject",
+      "label": "parameterSubject",
       "scope": "#/properties/parameterSubject"
     },
     {
       "type": "Control",
-      "label": "Parameter Distribution",
+      "label": "parameterDistribution",
       "scope": "#/properties/parameterDistribution"
     },
     {
       "type": "Control",
-      "label": "Parameter Value",
+      "label": "parameterValue",
       "scope": "#/properties/parameterValue"
     },
     {
       "type": "Control",
-      "label": "Parameter Variability Subject",
+      "label": "parameterVariabilitySubject",
       "scope": "#/properties/parameterVariabilitySubject"
     },
     {
       "type": "Control",
-      "label": "Parameter Value Min",
+      "label": "parameterValueMin",
       "scope": "#/properties/parameterValueMin"
     },
     {
       "type": "Control",
-      "label": "Parameter Value Max",
+      "label": "parameterValueMax",
       "scope": "#/properties/parameterValueMax"
     },
     {
       "type": "Control",
-      "label": "Parameter Error",
+      "label": "parameterError",
       "scope": "#/properties/parameterError"
     },
     {
       "type": "Control",
-      "label": "Reference",
+      "label": "reference",
       "scope": "#/properties/reference"
     }
   ]

@@ -17,7 +17,7 @@ stream.on('finish', function () {
 		  './tmp/mininodeserver/suffix.js'
 		], '../FSK-Lab/de.bund.bfr.knime.fsklab.nodes/js-src/de/bund/bfr/knime/fsklab/nodes/joiner/emfbundle/bundle.js', function(err) {
 		  if (err) throw err
-		  console.log('done');
+		  console.log('Bundle is produced and written to /FSK-Lab/de.bund.bfr.knime.fsklab.nodes/js-src/de/bund/bfr/knime/fsklab/nodes/joiner/emfbundle/bundle.js ');
 		});
 
 });
