@@ -1,1 +1,1 @@
-window.Model_Sub_Class = ["(Data)","Value"]
+window.Model_Sub_Class = ["(Data)"]

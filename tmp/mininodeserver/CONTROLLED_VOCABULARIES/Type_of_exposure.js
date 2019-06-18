@@ -1,1 +1,1 @@
-window.Type_of_exposure = ["Value","Acute","Chronic","Other","Subacute","Subchronic"]
+window.Type_of_exposure = ["Acute","Chronic","Other","Subacute","Subchronic"]

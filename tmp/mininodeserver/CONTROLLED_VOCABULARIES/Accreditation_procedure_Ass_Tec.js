@@ -1,1 +1,1 @@
-window.Accreditation_procedure_Ass_Tec = ["Value","According to OIE guidelines","Internally validated","ISO/IEC17025","Not validated","Other third party quality assessment procedure"]
+window.Accreditation_procedure_Ass_Tec = ["According to OIE guidelines","Internally validated","ISO/IEC17025","Not validated","Other third party quality assessment procedure"]

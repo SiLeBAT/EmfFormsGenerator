@@ -1,1 +1,1 @@
-window.Basic_process = ["(Data)","Value"]
+window.Basic_process = ["(Data)"]

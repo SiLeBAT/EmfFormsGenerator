@@ -1,1 +1,1 @@
-window.Parameter_subject = ["Value","Animal","Batch of animals","Batch of products","Belly","Carcass","Carcass skin","Feces","Other","Package","Product"]
+window.Parameter_subject = ["Animal","Batch of animals","Batch of products","Belly","Carcass","Carcass skin","Feces","Other","Package","Product"]

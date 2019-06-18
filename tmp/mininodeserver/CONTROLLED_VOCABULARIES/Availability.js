@@ -1,1 +1,1 @@
-window.Availability = ["Value","Closed access","Embargoed access","Open access","Other","Restricted access"]
+window.Availability = ["Closed access","Embargoed access","Open access","Other","Restricted access"]

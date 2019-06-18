@@ -1,1 +1,1 @@
-window.Laboratory_accreditation = ["Value","Accredited","None","Other","Third party assessment"]
+window.Laboratory_accreditation = ["Accredited","None","Other","Third party assessment"]

@@ -1,1 +1,1 @@
-window.Fitting_procedure = ["Value","Maximum likelihood estimation (MLE)","Other"]
+window.Fitting_procedure = ["Maximum likelihood estimation (MLE)","Other"]

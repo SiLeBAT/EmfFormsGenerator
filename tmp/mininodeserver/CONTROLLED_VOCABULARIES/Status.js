@@ -1,1 +1,1 @@
-window.Status = ["Value","Curated","Other","Uncurated"]
+window.Status = ["Curated","Other","Uncurated"]

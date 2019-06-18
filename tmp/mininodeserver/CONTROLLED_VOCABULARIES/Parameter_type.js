@@ -1,1 +1,1 @@
-window.Parameter_type = ["Value","Concentration","None","Number","Other","Prevalence"]
+window.Parameter_type = ["Concentration","None","Number","Other","Prevalence"]

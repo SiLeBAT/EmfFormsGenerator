@@ -1,1 +1,1 @@
-window.Format = ["Value",".fskx",".pmfx","Other"]
+window.Format = [".fskx",".pmfx","Other"]

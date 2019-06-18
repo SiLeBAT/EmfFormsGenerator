@@ -1,1 +1,1 @@
-window.Publication_Status = ["Value","Accepted","Draft","Forthcoming","Legal","Non peer reviewed","Other","Peer reviewed","Published","Rejected","Unpublished"]
+window.Publication_Status = ["Accepted","Draft","Forthcoming","Legal","Non peer reviewed","Other","Peer reviewed","Published","Rejected","Unpublished"]

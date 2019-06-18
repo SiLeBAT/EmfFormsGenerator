@@ -1,1 +1,1 @@
-window.Parameter_classification = ["Value","Constant","Input","Output"]
+window.Parameter_classification = ["Constant","Input","Output"]

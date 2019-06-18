@@ -1,1 +1,1 @@
-window.Parameter_source = ["Value","Article","Assumption","Data","Estimate","Expert opinion","Model result","Not applicable ","Other"]
+window.Parameter_source = ["Article","Assumption","Data","Estimate","Expert opinion","Model result","Not applicable ","Other"]

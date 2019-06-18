@@ -1,1 +1,1 @@
-window.Hazard_ind_sum = ["Value","Individual","Other","Part of a sum","Sum","Sum based on subset"]
+window.Hazard_ind_sum = ["Individual","Other","Part of a sum","Sum","Sum based on subset"]

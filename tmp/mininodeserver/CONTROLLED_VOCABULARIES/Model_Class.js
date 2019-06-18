@@ -1,1 +1,1 @@
-window.Model_Class = ["Value","(Data)","Consumption model","Dose-response model","Exposure model","Health metrics model","Other Empirical models","Predictive model","Process model","QRA model","Toxicological reference value model"]
+window.Model_Class = ["(Data)","Consumption model","Dose-response model","Exposure model","Health metrics model","Other Empirical models","Predictive model","Process model","QRA model","Toxicological reference value model"]

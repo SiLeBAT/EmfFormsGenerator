@@ -121,7 +121,7 @@ public class ControlledVocabulariesDownloader {
 				for (List row : values) {
 					// Print columns A and E, which correspond to indices 0 and 4.
 					try {
-						if (((String) row.get(0)).trim() != "") {
+						if (((String) row.get(0)).trim() != "" && !((String) row.get(0)).trim().equals("Value")) {
 							arrayValue += "\"" + ((String) row.get(0)).replaceAll(",", " ").replaceAll("\\n", " ")
 									.replaceAll("\"", "") + "\",";
 						}
