@@ -144,7 +144,7 @@ public class App {
 				.map(String::trim).collect(Collectors.toList());
 		List<String> holderElement = Arrays.asList(props.getProperty("holderElement").split(",")).stream()
 				.map(String::trim).collect(Collectors.toList());
-		String[] arrayHolderLevel = { null, null, "items", "items" };
+		String[] arrayHolderLevel = { null, null, "items", "items", "items" };
 
 		for (int index = 0; index < keyNameOfElementToBeFixed.size(); index++) {
 			String fileToReplaceIn = modelJSONFilesToReplaceIn.get(index);

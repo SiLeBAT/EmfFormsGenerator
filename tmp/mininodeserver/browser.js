@@ -90,7 +90,7 @@
     
     
     window.schema28 = require('./StringObjectModel.json');
-    windowuischema28 = require('./StringObjectView.json');
+    window.uischema28 = require('./StringObjectView.json');
     window.Actions= jsonformscore.Actions;
     var Actions= jsonformscore.Actions,
 	  jsonformsReducer= jsonformscore.jsonformsReducer,
@@ -405,7 +405,11 @@ store27 = createStore(
 		    }
 		  }
 		);
-store27.dispatch(Actions.init( window.modelMath.exposure!= null?window.modelMath.exposure:{}, schema27, uischema27));
+if(window.modelMath.exposure == null){
+	 window.modelMath.exposure = {}
+}
+
+store27.dispatch(Actions.init( window.modelMath.exposure, schema27, uischema27));
 window.toBeReplacedMap["Exposure"] = store27;
 
 store28 = createStore(
@@ -513,10 +517,10 @@ window.savereference = function () {
 	if(window.generalInformation.reference == undefined){
 		window.generalInformation.reference = [];
 		window.generalInformation.reference.push(store22.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}else{
 		window.generalInformation.reference.push(store22.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
     
     $(".table tbody tr td div div div input").removeAttr('class');
@@ -576,10 +580,10 @@ window.saveModelCategory = function () {
 	if(window.generalInformation.modelCategory == undefined){
 		window.generalInformation.modelCategory = [];
 		window.generalInformation.modelCategory.push(window.store13.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}else{
 		window.generalInformation.modelCategory.push(window.store13.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
 	    $(".table tbody tr td div div div input").removeAttr('class');
 	    tableInputBootstraping($(".table tbody tr td div div div input"));
@@ -701,10 +705,10 @@ window.saveCreators = function () {
 	if(window.generalInformation.creators == undefined){
 		window.generalInformation.creators = [];
 		window.generalInformation.creators.push(store24.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}else{
 		window.generalInformation.creators.push(store24.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
 	//console.log("date ",window.generalInformation.modificationdate);
 		$(".table tbody tr td div div div input").removeAttr('class');
@@ -1065,12 +1069,12 @@ ReactDOM.render(React.createFactory(Provider)({store: window.store18},
 	
 }
 window.saveModelequation = function () {
-	if(window.modelMath.modelequation == undefined){
-		window.modelMath.modelequation = [];
-		window.modelMath.modelequation.push(window.store19.getState().jsonforms.core.data);
+	if(window.modelMath.modelEquation == undefined){
+		window.modelMath.modelEquation = [];
+		window.modelMath.modelEquation.push(window.store19.getState().jsonforms.core.data);
 		store17.dispatch(Actions.init(window.modelMath, window.schema17, window.uischema17));
 	}else{
-		window.modelMath.modelequation.push(window.store19.getState().jsonforms.core.data);
+		window.modelMath.modelEquation.push(window.store19.getState().jsonforms.core.data);
 		store17.dispatch(Actions.init(window.modelMath, window.schema17, window.uischema17));
 	}
 	    $(".table tbody tr td div div div input").removeAttr('class');

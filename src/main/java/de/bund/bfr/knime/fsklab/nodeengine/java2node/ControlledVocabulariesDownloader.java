@@ -28,7 +28,10 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
-
+/**
+ * This is Application designed to connect to the Controlled Vucabularies google sheet and to procces the the
+ * data stored there into arraies to be used afterwards within the generated EMF forms.
+ */
 public class ControlledVocabulariesDownloader {
 	private static final String APPLICATION_NAME = "Google Sheets API Java Quickstart";
 	private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
@@ -63,10 +66,7 @@ public class ControlledVocabulariesDownloader {
 		return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
 	}
 
-	/**
-	 * Prints the names and majors of students in a sample spreadsheet:
-	 * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-	 */
+	
 	public static void main(String... args) throws IOException, GeneralSecurityException {
 		// Build a new authorized API client service.
 		System.setProperty("https.proxyHost", "webproxy");
