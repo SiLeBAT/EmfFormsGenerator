@@ -1,0 +1,1 @@
+{"additionalProperties":false,"type":"object","required":["parameter"],"properties":{"parameter":{"type":"array","items":{"$ref":"#/definitions/Parameter"}}}}

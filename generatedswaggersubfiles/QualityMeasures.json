@@ -1,0 +1,1 @@
+{"additionalProperties":false,"type":"object","properties":{"RSquared":{"type":"number"},"SSE":{"type":"number"},"RMSE":{"type":"number"},"AIC":{"type":"number"},"BIC":{"type":"number"},"MSE":{"type":"number"}}}

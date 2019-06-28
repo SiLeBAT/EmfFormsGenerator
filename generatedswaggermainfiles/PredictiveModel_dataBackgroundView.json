@@ -1,0 +1,1 @@
+{"elements":[{"scope":"#/properties/study","label":"Study","type":"Control"},{"scope":"#/properties/laboratory","label":"Laboratory","type":"Control"},{"scope":"#/properties/assay","label":"Assay","type":"Control"},{"scope":"#/properties/studySample","label":"Study Sample","type":"Control"}],"type":"VerticalLayout"}

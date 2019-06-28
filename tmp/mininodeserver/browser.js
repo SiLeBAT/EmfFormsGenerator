@@ -1,3 +1,190 @@
+
+window.generateModel = function() {
+	modelsmap = new Object();
+	
+	//GenericModel
+	modelsmap["GenericModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/GenericModel_generalInformationModel.json');
+	modelsmap["GenericModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/GenericModel_generalInformationView.json');
+    
+	modelsmap["GenericModelScopeModel.json"] = require('../../generatedswaggermainfiles/GenericModel_scopeModel.json');
+	modelsmap["GenericModelScopeView.json"] =  require('../../generatedswaggermainfiles/GenericModel_scopeView.json');
+    
+	modelsmap["GenericModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/GenericModel_dataBackgroundModel.json');
+	modelsmap["GenericModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/GenericModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["GenericModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/GenericModel_modelMathModel.json');
+	modelsmap["GenericModelModelMathView.json"] =  require('../../generatedswaggermainfiles/GenericModel_modelMathView.json');
+	
+	
+	//DataModel
+	modelsmap["DataModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/DataModel_generalInformationModel.json');
+	modelsmap["DataModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/DataModel_generalInformationView.json');
+    
+	modelsmap["DataModelScopeModel.json"] = require('../../generatedswaggermainfiles/DataModel_scopeModel.json');
+	modelsmap["DataModelScopeView.json"] =  require('../../generatedswaggermainfiles/DataModel_scopeView.json');
+    
+	modelsmap["DataModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/DataModel_dataBackgroundModel.json');
+	modelsmap["DataModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/DataModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["DataModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/DataModel_modelMathModel.json');
+	modelsmap["DataModelModelMathView.json"] =  require('../../generatedswaggermainfiles/DataModel_modelMathView.json');
+	
+	
+
+	//DoseResponseModel
+	modelsmap["DoseResponseModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_generalInformationModel.json');
+	modelsmap["DoseResponseModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_generalInformationView.json');
+    
+	modelsmap["DoseResponseModelScopeModel.json"] = require('../../generatedswaggermainfiles/DoseResponseModel_scopeModel.json');
+	modelsmap["DoseResponseModelScopeView.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_scopeView.json');
+    
+	modelsmap["DoseResponseModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/DoseResponseModel_dataBackgroundModel.json');
+	modelsmap["DoseResponseModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["DoseResponseModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_modelMathModel.json');
+	modelsmap["DoseResponseModelModelMathView.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_modelMathView.json');
+	
+	
+
+	//QraModel
+	modelsmap["QraModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/QraModel_generalInformationModel.json');
+	modelsmap["QraModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/QraModel_generalInformationView.json');
+    
+	modelsmap["QraModelScopeModel.json"] = require('../../generatedswaggermainfiles/QraModel_scopeModel.json');
+	modelsmap["QraModelScopeView.json"] =  require('../../generatedswaggermainfiles/QraModel_scopeView.json');
+    
+	modelsmap["QraModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/QraModel_dataBackgroundModel.json');
+	modelsmap["QraModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/QraModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["QraModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/QraModel_modelMathModel.json');
+	modelsmap["QraModelModelMathView.json"] =  require('../../generatedswaggermainfiles/QraModel_modelMathView.json');
+	
+	
+	//RiskModel
+	modelsmap["RiskModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/RiskModel_generalInformationModel.json');
+	modelsmap["RiskModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/RiskModel_generalInformationView.json');
+    
+	modelsmap["RiskModelScopeModel.json"] = require('../../generatedswaggermainfiles/RiskModel_scopeModel.json');
+	modelsmap["RiskModelScopeView.json"] =  require('../../generatedswaggermainfiles/RiskModel_scopeView.json');
+    
+	modelsmap["RiskModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/RiskModel_dataBackgroundModel.json');
+	modelsmap["RiskModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/RiskModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["RiskModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/RiskModel_modelMathModel.json');
+	modelsmap["RiskModelModelMathView.json"] =  require('../../generatedswaggermainfiles/RiskModel_modelMathView.json');
+	
+	
+	//HealthModel
+	modelsmap["HealthModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/HealthModel_generalInformationModel.json');
+	modelsmap["HealthModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/HealthModel_generalInformationView.json');
+    
+	modelsmap["HealthModelScopeModel.json"] = require('../../generatedswaggermainfiles/HealthModel_scopeModel.json');
+	modelsmap["HealthModelScopeView.json"] =  require('../../generatedswaggermainfiles/HealthModel_scopeView.json');
+    
+	modelsmap["HealthModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/HealthModel_dataBackgroundModel.json');
+	modelsmap["HealthModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/HealthModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["HealthModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/HealthModel_modelMathModel.json');
+	modelsmap["HealthModelModelMathView.json"] =  require('../../generatedswaggermainfiles/HealthModel_modelMathView.json');
+	
+	
+	
+	//ConsumptionModel
+	modelsmap["ConsumptionModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_generalInformationModel.json');
+	modelsmap["ConsumptionModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_generalInformationView.json');
+    
+	modelsmap["ConsumptionModelScopeModel.json"] = require('../../generatedswaggermainfiles/ConsumptionModel_scopeModel.json');
+	modelsmap["ConsumptionModelScopeView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_scopeView.json');
+    
+	modelsmap["ConsumptionModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/ConsumptionModel_dataBackgroundModel.json');
+	modelsmap["ConsumptionModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["ConsumptionModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_modelMathModel.json');
+	modelsmap["ConsumptionModelModelMathView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_modelMathView.json');
+
+
+	//ProcessModel
+	modelsmap["ProcessModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/ProcessModel_generalInformationModel.json');
+	modelsmap["ProcessModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/ProcessModel_generalInformationView.json');
+    
+	modelsmap["ProcessModelScopeModel.json"] = require('../../generatedswaggermainfiles/ProcessModel_scopeModel.json');
+	modelsmap["ProcessModelScopeView.json"] =  require('../../generatedswaggermainfiles/ProcessModel_scopeView.json');
+    
+	modelsmap["ProcessModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/ProcessModel_dataBackgroundModel.json');
+	modelsmap["ProcessModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/ProcessModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["ProcessModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/ProcessModel_modelMathModel.json');
+	modelsmap["ProcessModelModelMathView.json"] =  require('../../generatedswaggermainfiles/ProcessModel_modelMathView.json');
+
+	
+	//ConsumptionModel
+	modelsmap["ConsumptionModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_generalInformationModel.json');
+	modelsmap["ConsumptionModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_generalInformationView.json');
+    
+	modelsmap["ConsumptionModelScopeModel.json"] = require('../../generatedswaggermainfiles/ConsumptionModel_scopeModel.json');
+	modelsmap["ConsumptionModelScopeView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_scopeView.json');
+    
+	modelsmap["ConsumptionModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/ConsumptionModel_dataBackgroundModel.json');
+	modelsmap["ConsumptionModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["ConsumptionModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_modelMathModel.json');
+	modelsmap["ConsumptionModelModelMathView.json"] =  require('../../generatedswaggermainfiles/ConsumptionModel_modelMathView.json');
+
+	
+	
+	//ExposureModel
+	modelsmap["ExposureModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/ExposureModel_generalInformationModel.json');
+	modelsmap["ExposureModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/ExposureModel_generalInformationView.json');
+    
+	modelsmap["ExposureModelScopeModel.json"] = require('../../generatedswaggermainfiles/ExposureModel_scopeModel.json');
+	modelsmap["ExposureModelScopeView.json"] =  require('../../generatedswaggermainfiles/ExposureModel_scopeView.json');
+    
+	modelsmap["ExposureModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/ExposureModel_dataBackgroundModel.json');
+	modelsmap["ExposureModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/ExposureModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["ExposureModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/ExposureModel_modelMathModel.json');
+	modelsmap["ExposureModelModelMathView.json"] =  require('../../generatedswaggermainfiles/ExposureModel_modelMathView.json');
+	
+	//ToxicologicalModel
+	modelsmap["ToxicologicalModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/ToxicologicalModel_generalInformationModel.json');
+	modelsmap["ToxicologicalModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/ToxicologicalModel_generalInformationView.json');
+    
+	modelsmap["ToxicologicalModelScopeModel.json"] = require('../../generatedswaggermainfiles/ToxicologicalModel_scopeModel.json');
+	modelsmap["ToxicologicalModelScopeView.json"] =  require('../../generatedswaggermainfiles/ToxicologicalModel_scopeView.json');
+    
+	modelsmap["ToxicologicalModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/ToxicologicalModel_dataBackgroundModel.json');
+	modelsmap["ToxicologicalModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/ToxicologicalModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["ToxicologicalModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/ToxicologicalModel_modelMathModel.json');
+	modelsmap["ToxicologicalModelModelMathView.json"] =  require('../../generatedswaggermainfiles/ToxicologicalModel_modelMathView.json');
+	
+	//OtherModel
+	modelsmap["OtherModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/OtherModel_generalInformationModel.json');
+	modelsmap["OtherModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/OtherModel_generalInformationView.json');
+    
+	modelsmap["OtherModelScopeModel.json"] = require('../../generatedswaggermainfiles/OtherModel_scopeModel.json');
+	modelsmap["OtherModelScopeView.json"] =  require('../../generatedswaggermainfiles/OtherModel_scopeView.json');
+    
+	modelsmap["OtherModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/OtherModel_dataBackgroundModel.json');
+	modelsmap["OtherModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/OtherModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["OtherModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/OtherModel_modelMathModel.json');
+	modelsmap["OtherModelModelMathView.json"] =  require('../../generatedswaggermainfiles/OtherModel_modelMathView.json');
+	
+	
+	
 	require('./browserCode');
 	window.toBeReplacedMap = new Object();
 	var jsonformscore = require('@jsonforms/core');
@@ -7,90 +194,76 @@
 	var react_redux = require('react-redux');
 	var App = React.createFactory(require('./App'));
 	window.App = App;
-    window.schema = require('./GeneralInformationModel.json');
-    window.uischema = require('./GeneralInformationView.json');
+    window.schema = modelsmap[window.modelPrefix+'GeneralInformationModel.json'];
+    window.uischema = modelsmap[window.modelPrefix+'GeneralInformationView.json'];
     
    // SCOPE
-    window.schema2 = require('./ScopeModel.json');
-    window.uischema2 = require('./ScopeView.json');
+    window.schema2 = modelsmap[window.modelPrefix+'ScopeModel.json'];
+    window.uischema2 = modelsmap[window.modelPrefix+'ScopeView.json'];
     
-    window.schema3 = require('./ProductModel.json');
-    window.uischema3 = require('./ProductView.json');
+    window.schema3 = require('../../generatedswaggermainfiles/ProductModel.json');
+    window.uischema3 = require('../../generatedswaggermainfiles/ProductView.json');
     
-    window.schema4 = require('./HazardModel.json');
-    window.uischema4 = require('./HazardView.json');
+    window.schema4 = require('../../generatedswaggermainfiles/HazardModel.json');
+    window.uischema4 = require('../../generatedswaggermainfiles/HazardView.json');
     
-    window.schema5 = require('./PopulationGroupModel.json');
-    window.uischema5 = require('./PopulationGroupView.json');
+    window.schema5 = require('../../generatedswaggermainfiles/PopulationGroupModel.json');
+    window.uischema5 = require('../../generatedswaggermainfiles/PopulationGroupView.json');
     
 
     //DATA Background
-    window.schema6 = require('./DataBackgroundModel.json');
-    window.uischema6 = require('./DataBackgroundView.json');
+    window.schema6 = modelsmap[window.modelPrefix+'DataBackgroundModel.json'];
+    window.uischema6 = modelsmap[window.modelPrefix+'DataBackgroundView.json'];
     
-    window.schema7 = require('./StudyModel.json');
-    window.uischema7 = require('./StudyView.json');
+    window.schema7 = require('../../generatedswaggermainfiles/StudyModel.json');
+    window.uischema7 = require('../../generatedswaggermainfiles/StudyView.json');
     
-    window.schema8 = require('./StudySampleModel.json');
-    window.uischema8 = require('./StudySampleView.json');
+    window.schema8 = require('../../generatedswaggermainfiles/StudySampleModel.json');
+    window.uischema8 = require('../../generatedswaggermainfiles/StudySampleView.json');
     
-    window.schema9 = require('./DietaryAssessmentMethodModel.json');
-    window.uischema9 = require('./DietaryAssessmentMethodView.json')
+    window.schema9 = require('../../generatedswaggermainfiles/DietaryAssessmentMethodModel.json');
+    window.uischema9 = require('../../generatedswaggermainfiles/DietaryAssessmentMethodView.json')
     
-    window.schema10 = require('./LaboratoryModel.json');
-    window.uischema10 = require('./LaboratoryView.json');
+    window.schema10 = require('../../generatedswaggermainfiles/LaboratoryModel.json');
+    window.uischema10 = require('../../generatedswaggermainfiles/LaboratoryView.json');
     
-    window.schema11 = require('./AssayModel.json');
-    window.uischema11 = require('./AssayView.json');
+    window.schema11 = require('../../generatedswaggermainfiles/AssayModel.json');
+    window.uischema11 = require('../../generatedswaggermainfiles/AssayView.json');
     
     
-    // popup creators
+    // popup creator
    
     
-    window.schema13 = require('./ModelCategoryModel.json');
-    window.uischema13 = require('./ModelCategoryView.json');
-    var schema14 = require('./ModificationDateModel.json');
-    var uischema14 = require('./ModificationDateView.json');
-    var schema15 = require('./CountryModel.json');
-    var uischema15 = require('./CountryView.json');
-    var schema16 = require('./RegionModel.json');
-    var uischema16 = require('./RegionView.json');
-    window.schema18 = require('./ParameterModel.json');
-    window.uischema18 = require('./ParameterView.json');
-    window.schema19 = require('./ModelEquationModel.json');
-    window.uischema19 = require('./ModelEquationView.json');
-    var schema20 = require('./EventModel.json');
-    var uischema20 = require('./EventView.json');
+    window.schema13 = require('../../generatedswaggermainfiles/ModelCategoryModel.json');
+    window.uischema13 = require('../../generatedswaggermainfiles/ModelCategoryView.json');
+  
+    window.schema18 = require('../../generatedswaggermainfiles/ParameterModel.json');
+    window.uischema18 = require('../../generatedswaggermainfiles/ParameterView.json');
+    window.schema19 = require('../../generatedswaggermainfiles/ModelEquationModel.json');
+    window.uischema19 = require('../../generatedswaggermainfiles/ModelEquationView.json');
    
     
-    window.schema29 = require('./StudySampleModel.json');
-    window.uischema29 = require('./StudySampleView.json');
+    window.schema29 = require('../../generatedswaggermainfiles/StudySampleModel.json');
+    window.uischema29 = require('../../generatedswaggermainfiles/StudySampleView.json');
     //Model Math
-    window.schema17 = require('./ModelMathModel.json');
-    window.uischema17 = require('./ModelMathView.json');
-    window.schema21 = require('./ExposureModel.json');
-    window.uischema21 = require('./ExposureView.json');
+    window.schema17 = modelsmap[window.modelPrefix+'ModelMathModel.json'];
+    window.uischema17 = modelsmap[window.modelPrefix+'ModelMathView.json'];
+    window.schema21 = require('../../generatedswaggermainfiles/ExposureModel.json');
+    window.uischema21 = require('../../generatedswaggermainfiles/ExposureView.json');
     
-    window.schema22 = require('./ReferenceModel.json');
-    window.uischema22 = require('./ReferenceView.json');
+    window.schema22 = require('../../generatedswaggermainfiles/ReferenceModel.json');
+    window.uischema22 = require('../../generatedswaggermainfiles/ReferenceView.json');
     
-    window.schema23 = require('./ContactModel.json');
-    window.uischema23 = require('./ContactView.json');
-    
-    
-    var schema25 = require('./SpatialInformationModel.json');
-    var uischema25 = require('./SpatialInformationView.json');
-    
-    var schema26 = require('./EventModel.json');
-    var uischema26 = require('./EventView.json');
-    
-    var schema27 = require('./ExposureModel.json');
-    var uischema27 = require('./ExposureView.json');
+    window.schema23 = require('../../generatedswaggermainfiles/ContactModel.json');
+    window.uischema23 = require('../../generatedswaggermainfiles/ContactView.json');
+   
+    var schema27 = require('../../generatedswaggermainfiles/ExposureModel.json');
+    var uischema27 = require('../../generatedswaggermainfiles/ExposureView.json');
     
     
     
-    window.schema28 = require('./StringObjectModel.json');
-    window.uischema28 = require('./StringObjectView.json');
+    /*window.schema28 = require('../../generatedswaggermainfiles/StringObjectModel.json');
+    window.uischema28 = require('../../generatedswaggermainfiles/StringObjectView.json');*/
     window.Actions= jsonformscore.Actions;
     var Actions= jsonformscore.Actions,
 	  jsonformsReducer= jsonformscore.jsonformsReducer,
@@ -232,41 +405,7 @@ store8.dispatch(Actions.init(window.dataBackground.studySample, window.schema8, 
 		  }
 		);
   window.store13.dispatch(Actions.init({}, window.schema13, window.uischema13));
-
-
-  store14 = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-store14.dispatch(Actions.init({}, schema14, uischema14));
-
-
-store15 = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-store15.dispatch(Actions.init({}, schema15, uischema15));
-
-store16 = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-store16.dispatch(Actions.init({}, schema16, uischema16));
+  window.toBeReplacedMap["modelCategory"] = window.store13;
 
 
 window.store17 = createStore(
@@ -304,17 +443,6 @@ window.store19 = createStore(
 		);
 window.store19.dispatch(Actions.init({}, window.schema19, window.uischema19));
 
-
-store20 = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-store20.dispatch(Actions.init({}, schema20, uischema20));
 
 window.store29 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
@@ -359,8 +487,7 @@ window.store23 = createStore(
 		    }
 		  }
 		);
-window.store23.dispatch(Actions.init(window.generalInformation.author!=null?window.generalInformation.author:{}, window.schema23, window.uischema23));
-window.toBeReplacedMap["Author"] = window.store23;
+window.store23.dispatch(Actions.init({}, window.schema23, window.uischema23));
 store24 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
 		  {
@@ -371,30 +498,6 @@ store24 = createStore(
 		  }
 		);
 store24.dispatch(Actions.init({}, window.schema23, window.uischema23));
-//window.toBeReplacedMap["Creators"] = store24;
-store25 = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-store25.dispatch(Actions.init(window.scope.spatialInformation!= null?window.scope.spatialInformation:{region:[],country:[]}, schema25, uischema25));
-window.toBeReplacedMap["Spatial Information"] = store25;
-
-store26 = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-store26.dispatch(Actions.init(window.modelMath.event, schema26, uischema26));
-window.toBeReplacedMap["Event"] = store26;
 
 store27 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
@@ -411,26 +514,6 @@ if(window.modelMath.exposure == null){
 
 store27.dispatch(Actions.init( window.modelMath.exposure, schema27, uischema27));
 window.toBeReplacedMap["Exposure"] = store27;
-
-store28 = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-store28.dispatch(Actions.init({}, window.schema28, window.uischema28));
-// Uncomment this line (and respective import) to register our custom renderer
-//store.dispatch(Actions.registerRenderer(ratingControlTester, RatingControl));
-
-// This script will run in the browser and will render our component using the
-// value from APP_PROPS that we generate inline in the page's html on the server.
-// If these props match what is used in the server render, React will see that
-// it doesn't need to generate any DOM and the page will load faster
-
-//document.getElementsByClassName("MuiTable-root-222")[0].classList.add("secondTable");
 
 try{
 ReactDOM.render(React.createFactory(Provider)({store: store1},
@@ -451,19 +534,28 @@ ReactDOM.render(React.createFactory(Provider)({store: store17},
 	
 }
 notAProperDiv = $("div:contains('No applicable'):not(:has(div))");
+
 $.each(notAProperDiv, function( index, value ) {
+	
 	var parentxc ;
 	var areaName;
 	try{
 			
 			parentxc = value.parentNode;
 			areaName =  parentxc.firstChild.textContent;
+			
 			if(parentxc.firstChild.textContent.indexOf('*') >= 0){
 				areaName = areaName.slice(0,-1);
 			}
+			if(areaName == 'Model Category'){
+				areaName = "modelCategory";
+			}else if(areaName == 'Modification Date'){
+				areaName = "modificationDate";
+			}
+			console.log(areaName, value,parentxc,window.toBeReplacedMap);
 			if(areaName.indexOf('No applicable field found') < 0){
 				$(value).remove();
-				if(areaName !='Spatial Information' && areaName !='Exposure'){
+				if(areaName !='Exposure' ){
 					$(parentxc).append( "<div id ='"+areaName+"' class='replaced' ></div>" );
 				}else{
 					$(parentxc).append( "<div id ='"+areaName+"' class='notReplace' ></div>" );
@@ -480,8 +572,8 @@ $.each(notAProperDiv, function( index, value ) {
 
 var tablePopups = [
 		{popId : "modelCategory",storeID : window.generalInformation,parent : document.getElementById('generalinformation')},
-		{popId : "modificationdate",storeID : window.generalInformation,parent : document.getElementById('generalinformation')},
-		{popId : "creators",storeID : window.generalInformation,parent : document.getElementById('generalinformation')},
+		{popId : "modificationDate",storeID : window.generalInformation,parent : document.getElementById('generalinformation')},
+		{popId : "creator",storeID : window.generalInformation,parent : document.getElementById('generalinformation')},
 		{popId : "reference",storeID : window.generalInformation,parent : document.getElementById('generalinformation')},
 		
 		{popId : "product",storeID : window.scope,parent: document.getElementById('scope')},
@@ -575,142 +667,17 @@ ReactDOM.render(React.createFactory(Provider)({store: store22},
 
 parent9 = document.getElementById('scope');
 
-//popup modelcategory
-window.saveModelCategory = function () {
-	if(window.generalInformation.modelCategory == undefined){
-		window.generalInformation.modelCategory = [];
-		window.generalInformation.modelCategory.push(window.store13.getState().jsonforms.core.data);
-		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
-	}else{
-		window.generalInformation.modelCategory.push(window.store13.getState().jsonforms.core.data);
-		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
-	}
-	    $(".table tbody tr td div div div input").removeAttr('class');
-	    tableInputBootstraping($(".table tbody tr td div div div input"));
-	    $(".table tbody tr td div div div").removeAttr('class');
-	    $(".table tbody tr td div div").removeAttr('class');
-	    $(".table tbody tr td div").removeAttr('class');
-	    $(".table tbody tr td").removeAttr('class');
-	    $(".table tbody tr").removeAttr('class');
-	    $(".table tbody").removeAttr('class');
-	    $(".table thead tr th th").removeAttr('class');
-	    $(".table thead tr th").removeAttr('class');
-	    $(".table thead tr").removeAttr('class');
-		$(".table thead").removeAttr('class');
-
-	    
-	   $('.MuiTable-root-222').addClass('table'); 
-	   $('.MuiTable-root-222').parent().addClass('table-responsive');
-	   $('.MuiTable-root-222').parent().removeClass('MuiGrid-typeItem-2'); 
-	   $('.MuiTable-root-222').removeClass('MuiTable-root-222');
-    
-
-    
-   
-   $('.MuiTable-root-222').addClass('table'); 
-   $('.MuiTable-root-222').parent().addClass('table-responsive');
-   $('.MuiTable-root-222').parent().removeClass('MuiGrid-typeItem-2'); 
-   $('.MuiTable-root-222').removeClass('MuiTable-root-222');
-	
-}
-$(parent8).append(
-		"<div id='modelCategory' class='modal fade' role='dialog'>\n" + 
-        "  <div class='modal-dialog'>\n" + 
-        "\n" + 
-        "    <!-- Modal content-->\n" + 
-        "    <div class='modal-content'>\n" + 
-        "      <div class='modal-header'>\n" + 
-        "        <button type='button' class='close' data-dismiss='modal'>&times;</button>\n" + 
-        "        <h4 id='titlemodelCategory' class='modal-title'>Modal Header</h4>\n" + 
-        "      </div>\n" + 
-        "      <div id='modelCategoryModelContent' class='modal-body'>\n" + 
-        "      </div>\n" + 
-        "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>\n" + 
-        "   	 <button id='save' onclick='window.saveModelCategory()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
-        "      </div>\n" + 
-        "    </div>\n" + 
-        "\n" + 
-        "  </div>\n" + 
-        "</div>");
-try{
-ReactDOM.render(React.createFactory(Provider)({store: window.store13},
-		App()
-), document.getElementById('modelCategoryModelContent'));
-}catch(err){//console.log("modelCategory " + err);
-	
-}
-//console.log('DONEMODELCLASS');
-//popup modificationdate
-window.savemodificationdate = function () {
-	if(window.generalInformation.modificationdate == undefined){
-		window.generalInformation.modificationdate = [];
-		window.generalInformation.modificationdate.push(store14.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
-	}else{
-		window.generalInformation.modificationdate.push(store14.getState().jsonforms.core.data);
-		store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
-	}
-	//console.log("date ",window.generalInformation.modificationdate);
-		$(".table tbody tr td div div div input").removeAttr('class');
-		tableInputBootstraping($(".table tbody tr td div div div input"));
-	    $(".table tbody tr td div div div").removeAttr('class');
-	    $(".table tbody tr td div div").removeAttr('class');
-	    $(".table tbody tr td div").removeAttr('class');
-	    $(".table tbody tr td").removeAttr('class');
-	    $(".table tbody tr").removeAttr('class');
-	    $(".table tbody").removeAttr('class');
-	    $(".table thead tr th th").removeAttr('class');
-	    $(".table thead tr th").removeAttr('class');
-	    $(".table thead tr").removeAttr('class');
-		$(".table thead").removeAttr('class');
-
-	    
-	   $('.MuiTable-root-222').addClass('table'); 
-	   $('.MuiTable-root-222').parent().addClass('table-responsive');
-	   $('.MuiTable-root-222').parent().removeClass('MuiGrid-typeItem-2'); 
-	   $('.MuiTable-root-222').removeClass('MuiTable-root-222');
-	//$('#modificationdate').modal('toggle');
-}
-
-$(parent8).append(
-		"<div id='modificationdate' class='modal fade' role='dialog'>\n" + 
-        "  <div class='modal-dialog'>\n" + 
-        "\n" + 
-        "    <!-- Modal content-->\n" + 
-        "    <div class='modal-content'>\n" + 
-        "      <div class='modal-header'>\n" + 
-        "        <button type='button' class='close' data-dismiss='modal'>&times;</button>\n" + 
-        "        <h4 id='titlemodificationdate' class='modal-title'>Modal Header</h4>\n" + 
-        "      </div>\n" + 
-        "      <div id='modificationdateModelContent' class='modal-body'>\n" + 
-        "      </div>\n" + 
-        "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
-        "   	 <button id='save' onclick='window.savemodificationdate()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
-        "      </div>\n" + 
-        "    </div>\n" + 
-        "\n" + 
-        "  </div>\n" + 
-        "</div>");
-try{
-	ReactDOM.render(React.createFactory(Provider)({store: store14},
-		App()
-), document.getElementById('modificationdateModelContent'));
-}catch(err){//console.log("modificationdate " + err);
-	
-}
-window.saveCreators = function () {
+window.saveCreator = function () {
 	//console.log(store24.getState().jsonforms.core.data);
-	if(window.generalInformation.creators == undefined){
-		window.generalInformation.creators = [];
-		window.generalInformation.creators.push(store24.getState().jsonforms.core.data);
+	if(window.generalInformation.creator == undefined){
+		window.generalInformation.creator = [];
+		window.generalInformation.creator.push(store24.getState().jsonforms.core.data);
 		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}else{
-		window.generalInformation.creators.push(store24.getState().jsonforms.core.data);
+		window.generalInformation.creator.push(store24.getState().jsonforms.core.data);
 		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
-	//console.log("date ",window.generalInformation.modificationdate);
+	//console.log("date ",window.generalInformation.modificationDate);
 		$(".table tbody tr td div div div input").removeAttr('class');
 		tableInputBootstraping($(".table tbody tr td div div div input"));
 	    $(".table tbody tr td div div div").removeAttr('class');
@@ -729,24 +696,24 @@ window.saveCreators = function () {
 	   $('.MuiTable-root-222').parent().addClass('table-responsive');
 	   $('.MuiTable-root-222').parent().removeClass('MuiGrid-typeItem-2'); 
 	   $('.MuiTable-root-222').removeClass('MuiTable-root-222');
-	//$('#modificationdate').modal('toggle');
+	//$('#modificationDate').modal('toggle');
 }
 
 $(parent8).append(
-		"<div id='creators' class='modal fade' role='dialog'>\n" + 
+		"<div id='creator' class='modal fade' role='dialog'>\n" + 
         "  <div class='modal-dialog'>\n" + 
         "\n" + 
         "    <!-- Modal content-->\n" + 
         "    <div class='modal-content'>\n" + 
         "      <div class='modal-header'>\n" + 
         "        <button type='button' class='close' data-dismiss='modal'>&times;</button>\n" + 
-        "        <h4 id='titlecreators' class='modal-title'>Modal Header</h4>\n" + 
+        "        <h4 id='titlecreator' class='modal-title'>Modal Header</h4>\n" + 
         "      </div>\n" + 
-        "      <div id='creatorsModelContent' class='modal-body'>\n" + 
+        "      <div id='creatorModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
         "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
-        "   	 <button id='save' onclick='window.saveCreators()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
+        "   	 <button id='save' onclick='window.saveCreator()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
         "\n" + 
@@ -755,28 +722,24 @@ $(parent8).append(
 try{
 	ReactDOM.render(React.createFactory(Provider)({store: store24},
 		App()
-), document.getElementById('creatorsModelContent'));
-}catch(err){//console.log("modificationdate " + err);
+), document.getElementById('creatorModelContent'));
+}catch(err){//console.log("modificationDate " + err);
 	
 }
 
-
-//popup country
-/*window.saveCountry = function () {
-	if(window.scope.spatialInformation == undefined){
-		window.scope.spatialInformation = {}
-	}
-	if(window.scope.spatialInformation.country == undefined){
-		window.scope.spatialInformation.country = [];
-		console.log(store15.getState().jsonforms.core.data);
-		window.scope.spatialInformation.country.push(store15.getState().jsonforms.core.data);
-		window.store2.dispatch(Actions.init(window.scope, window.schema2, window.uischema2));
+window.saveAuthor = function () {
+	console.log(store23.getState().jsonforms.core.data);
+	if(window.generalInformation.author == undefined){
+		window.generalInformation.author = [];
+		window.generalInformation.author.push(store23.getState().jsonforms.core.data);
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}else{
-		console.log(store15.getState().jsonforms.core.data);
-		window.scope.spatialInformation.country.push(store15.getState().jsonforms.core.data);
-		window.store2.dispatch(Actions.init(window.scope, window.schema2, window.uischema2));
+		window.generalInformation.author.push(store23.getState().jsonforms.core.data);
+		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
+	//console.log("date ",window.generalInformation.modificationDate);
 		$(".table tbody tr td div div div input").removeAttr('class');
+		tableInputBootstraping($(".table tbody tr td div div div input"));
 	    $(".table tbody tr td div div div").removeAttr('class');
 	    $(".table tbody tr td div div").removeAttr('class');
 	    $(".table tbody tr td div").removeAttr('class');
@@ -793,97 +756,37 @@ try{
 	   $('.MuiTable-root-222').parent().addClass('table-responsive');
 	   $('.MuiTable-root-222').parent().removeClass('MuiGrid-typeItem-2'); 
 	   $('.MuiTable-root-222').removeClass('MuiTable-root-222');
-	
+	//$('#modificationDate').modal('toggle');
 }
 
-$(parent9).append(
-		"<div id='country' class='modal fade' role='dialog'>\n" + 
+$(parent8).append(
+		"<div id='author' class='modal fade' role='dialog'>\n" + 
         "  <div class='modal-dialog'>\n" + 
         "\n" + 
         "    <!-- Modal content-->\n" + 
         "    <div class='modal-content'>\n" + 
         "      <div class='modal-header'>\n" + 
         "        <button type='button' class='close' data-dismiss='modal'>&times;</button>\n" + 
-        "        <h4 id='titlecountry' class='modal-title'>Modal Header</h4>\n" + 
+        "        <h4 id='titleauthor' class='modal-title'>Modal Header</h4>\n" + 
         "      </div>\n" + 
-        "      <div id='countryModelContent' class='modal-body'>\n" + 
+        "      <div id='authorModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
         "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
-        "   	 <button id='save' onclick='window.saveCountry()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
+        "   	 <button id='save' onclick='window.saveAuthor()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
         "\n" + 
         "  </div>\n" + 
         "</div>");
 try{
-	ReactDOM.render(React.createFactory(Provider)({store: store15},
+	ReactDOM.render(React.createFactory(Provider)({store: store23},
 		App()
-), document.getElementById('countryModelContent'));
-}catch(err){//console.log("country " + err);
+), document.getElementById('authorModelContent'));
+}catch(err){//console.log("modificationDate " + err);
 	
 }
 
-//popup region
-window.saveRegion = function () {
-	if(window.scope.spatialInformation == undefined){
-		window.scope.spatialInformation = {}
-	}
-	if(window.scope.spatialInformation.region == undefined){
-		window.scope.spatialInformation.region = [];
-		window.scope.spatialInformation.region.push(store16.getState().jsonforms.core.data);
-		window.store2.dispatch(Actions.init(window.scope, window.schema2, window.uischema2));
-	}else{
-		window.scope.spatialInformation.region.push(store16.getState().jsonforms.core.data);
-		window.store2.dispatch(Actions.init(window.scope, window.schema2, window.uischema2));
-	}
-		$(".table tbody tr td div div div input").removeAttr('class');
-	    $(".table tbody tr td div div div").removeAttr('class');
-	    $(".table tbody tr td div div").removeAttr('class');
-	    $(".table tbody tr td div").removeAttr('class');
-	    $(".table tbody tr td").removeAttr('class');
-	    $(".table tbody tr").removeAttr('class');
-	    $(".table tbody").removeAttr('class');
-	    $(".table thead tr th th").removeAttr('class');
-	    $(".table thead tr th").removeAttr('class');
-	    $(".table thead tr").removeAttr('class');
-		$(".table thead").removeAttr('class');
-
-	    
-	   $('.MuiTable-root-222').addClass('table'); 
-	   $('.MuiTable-root-222').parent().addClass('table-responsive');
-	   $('.MuiTable-root-222').parent().removeClass('MuiGrid-typeItem-2'); 
-	   $('.MuiTable-root-222').removeClass('MuiTable-root-222');
-	
-}
-
-$(parent9).append(
-		"<div id='region' class='modal fade' role='dialog'>\n" + 
-      "  <div class='modal-dialog'>\n" + 
-      "\n" + 
-      "    <!-- Modal content-->\n" + 
-      "    <div class='modal-content'>\n" + 
-      "      <div class='modal-header'>\n" + 
-      "        <button type='button' class='close' data-dismiss='modal'>&times;</button>\n" + 
-      "        <h4 id='titleregion' class='modal-title'>Modal Header</h4>\n" + 
-      "      </div>\n" + 
-      "      <div id='regionModelContent' class='modal-body'>\n" + 
-      "      </div>\n" + 
-      "      <div class='modal-footer'>\n" + 
-      "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
-      "   	 <button id='save' onclick='window.saveRegion()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
-      "      </div>\n" + 
-      "    </div>\n" + 
-      "\n" + 
-      "  </div>\n" + 
-      "</div>");
-try{
-	ReactDOM.render(React.createFactory(Provider)({store: store16},
-		App()
-), document.getElementById('regionModelContent'));
-}catch(err){//console.log("country " + err);
-	
-}*/
 
 //popup product
 window.saveProduct = function () {
@@ -1368,72 +1271,7 @@ try{
 }catch(err){
 	//console.log("assayModelContent" + err);
 }
-///////////////////////
-/*window.popupschemapopulationSpan= require('./StringObjectModel.json');
-window.popupuischemapopulationSpan = require('./StringObjectView.json');
-window.populationSpanstore = createStore(
-		  combineReducers({ jsonforms: jsonformsReducer() }),  
-		  {
-		    jsonforms: {
-		      renderers: materialRenderers,
-		      fields: materialFields,
-		    }
-		  }
-		);
-window.populationSpanstore.dispatch(Actions.init({}, window.popupschemapopulationSpan, window.popupuischemapopulationSpan));
-window.savepopulationSpan = function () {
-	
-		//console.log(window.toBeReplacedMap["Population Group"].getState().jsonforms.core.data);		
-		window.toBeReplacedMap["Population Group"].getState().jsonforms.core.data.populationSpan.push(window.populationSpanstore.getState().jsonforms.core.data);
-		var parentxc ;
-		var areaName;
-		try{
-				value = document.getElementById("Population Group");
-				parentxc = value.parentNode;
-				
-				
-				$(value).remove();
-				$(parentxc).append( "<div id ='Population Group' class='replaced' ></div>" );
-				ReactDOM.render(React.createFactory(Provider)({store: window.toBeReplacedMap["Population Group"]},
-						App()
-				), document.getElementById("Population Group"));
-				
-		}catch(err){
-			//console.log("loop ",parentxc, err);
-		}
-}
-$(parent9).append(
-		"<div id='populationSpan' class='modal fade' role='dialog'>\n" + 
-        "  <div class='modal-dialog'>\n" + 
-        "\n" + 
-        "    <!-- Modal content-->\n" + 
-        "    <div class='modal-content'>\n" + 
-        "      <div class='modal-header'>\n" + 
-        "        <button type='button' class='close' data-dismiss='modal'>&times;</button>\n" + 
-        "        <h4 id='titlepopulationSpan' class='modal-title'>Modal Header</h4>\n" + 
-        "      </div>\n" + 
-        "      <div id='populationSpanModelContent' class='modal-body'>\n" + 
-        "      </div>\n" + 
-        "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
-        "   	 <button id='save' onclick='window.savepopulationSpan()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
-        "      </div>\n" + 
-        "    </div>\n" + 
-        "\n" + 
-        "  </div>\n" + 
-        "</div>");
-try{
-	ReactDOM.render(React.createFactory(Provider)({store: window.populationSpanstore},
-		App()
-), document.getElementById('populationSpanModelContent'));
-}catch(err){//console.log("event " + err);
 
-}*/
-
-
-
-//////////////////////
-var StringObjectPopupsName = ['populationSpan','populationDescription','bmi','specialDietGroups','region','country','populationRiskFactor','season','patternConsumption','populationAge'];
 //popup populationGroup
 window.store5 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
@@ -1448,10 +1286,6 @@ window.store5.dispatch(Actions.init({}, window.schema5, window.uischema5));
 window.store5.getState().jsonforms.core.data.populationName = window.store5.getState().jsonforms.core.data.populationName != null ?window.store5.getState().jsonforms.core.data.populationName:"";
 window.store5.getState().jsonforms.core.data.targetPopulation = window.store5.getState().jsonforms.core.data.targetPopulation != null ?window.store5.getState().jsonforms.core.data.targetPopulation:"";
 
-$.each(StringObjectPopupsName, function( index, value ) {
-	window.store5.getState().jsonforms.core.data[value] = window.store5.getState().jsonforms.core.data[value] != null ?window.store5.getState().jsonforms.core.data[value]:[];
-});
-//console.log(window.store5.getState().jsonforms.core.data);
 window.savepopulationGroup = function () {
 	
 	if(window.scope.populationGroup == undefined){
@@ -1509,91 +1343,5 @@ ReactDOM.render(React.createFactory(Provider)({store: window.store5},
 		App()
 ), document.getElementById('populationGroupModelContent'));
 }catch(err){
-	//console.log("reference " + err);
 }
-/*$("#populationGroupModelContent button[aria-describedby*='tooltip-add']").click(function(event) {
-	
-	currentArea = window.makeId($(this).attr('aria-label'));
-	console.log(currentArea);
-	event.preventDefault(); // Let's stop this event.
-    event.stopPropagation(); // Really this time.
-    $('#ptitle'+currentArea).text(currentArea);
-    $('#p'+currentArea).modal('show');
-});
-window.popupFunctions = {};
-window.popupschema = {};
-window.popupuischema = {};
-window.popupstore = {};
-$.each(StringObjectPopupsName, function( index, value ) {	
-	window.popupschema[value]= require('./StringObjectModel.json');
-	window.popupuischema[value] = require('./StringObjectView.json');
-	window.popupstore[value] = createStore(
-			  combineReducers({ jsonforms: jsonformsReducer() }),  
-			  {
-			    jsonforms: {
-			      renderers: materialRenderers,
-			      fields: materialFields,
-			    }
-			  }
-			);
-	
-	window.popupstore[value].dispatch(Actions.init({}, window.popupschema[value], window.popupuischema[value]));
-	window.popupFunctions['save'+value]=
-										"window.store5.getState().jsonforms.core.data."+value+".push(window.popupstore."+value+".getState().jsonforms.core.data);"+
-										"var parentxc ;"+
-										"var areaName;"+
-										
-										"cdiv = document.getElementById(\"populationGroupModelContent\");" +
-										"console.log(cdiv);"+
-										"parentxc = cdiv.parentNode;"+
-										
-										
-										"$(cdiv).remove();"+
-										"$(parentxc).append(\" <div id=&#39;populationGroupModelContent&#39; class=&#39;modal-body&#39;>\" );"+
-										"ReactDOM.render(React.createFactory( window.Provider)({store: window.store5},"+
-										"		window.App()"+
-										"), document.getElementById(\"populationGroupModelContent\"));"+
-										"$(\"[aria-describedby*=&#39;tooltip-add&#39;]\").click(function(event) {"+
-        	
-								        	"currentArea = window.makeId($(this).attr(&#39;aria-label&#39;));"+
-								        	"console.log(currentArea);"+
-								        	"event.preventDefault(); "+
-								            "event.stopPropagation();"+
-								            "$(&#39;#title&#39;+currentArea).text(currentArea);"+
-								            "$(&#39;#&#39;+currentArea).modal(&#39;show&#39;);"+
-								        "});";
-												
-										
-	
-	 
-	$(parent9).append(
-			"<div id='p"+value+"' class='modal fade' role='dialog'>\n" + 
-	        "  <div class='modal-dialog'>\n" + 
-	        "\n" + 
-	        "    <!-- Modal content-->\n" + 
-	        "    <div class='modal-content'>\n" + 
-	        "      <div class='modal-header'>\n" + 
-	        "        <button type='button' class='close' data-dismiss='modal'>&times;</button>\n" + 
-	        "        <h4 id='ptitle"+value+"' class='modal-title'>Modal Header</h4>\n" + 
-	        "      </div>\n" + 
-	        "      <div id='p"+value+"ModelContent' class='modal-body'>\n" + 
-	        "      </div>\n" + 
-	        "      <div class='modal-footer'>\n" + 
-	        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
-	        "   	 <button id='save"+value+"' onclick='"+window.popupFunctions['save'+value]+"' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
-	        "      </div>\n" + 
-	        "    </div>\n" + 
-	        "\n" + 
-	        "  </div>\n" + 
-	        "</div>");
-	try{
-		ReactDOM.render(React.createFactory(Provider)({store: window.popupstore[value]},
-			App()
-	), document.getElementById('p'+value+'ModelContent'));		
-	console.log(value);
-	}catch(err){
-		console.log(value + err);
-	}
-});*/
-
-
+}();

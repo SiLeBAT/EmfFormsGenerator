@@ -1,1 +1,0 @@
-{"additionalProperties":false,"type":"object","properties":{"modelClassComment":{"type":"string"},"basicProcess":{"type":"string"},"modelClass":{"type":"string"},"modelSubClass":{"type":"array","items":{"additionalProperties":false,"type":"object","properties":{"value":{"type":"string"}}}}},"required":["modelClass"]}

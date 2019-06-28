@@ -1,0 +1,1 @@
+{"additionalProperties":false,"type":"object","required":["accreditation"],"properties":{"name":{"type":"string"},"country":{"type":"string"},"accreditation":{"type":"array","items":{"type":"object","properties":{"value":{"type":"string"}},"additionalProperties":false}}}}
