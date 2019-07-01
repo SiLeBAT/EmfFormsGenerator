@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import org.mortbay.util.ajax.JSON;
 import org.apache.commons.io.FilenameUtils;
 
-public class Swagger2EMFBridge {
+public class Swagger2JSONFormsBridge {
 	static Map<String, String> filesAndContent = new Hashtable<String, String>();
 
 	public static void main(String[] args) {

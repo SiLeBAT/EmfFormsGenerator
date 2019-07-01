@@ -32,7 +32,23 @@ window.generateModel = function() {
 	modelsmap["DataModelModelMathView.json"] =  require('../../generatedswaggermainfiles/DataModel_modelMathView.json');
 	
 	
-
+	//PredictiveModel
+	modelsmap["PredictiveModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/PredictiveModel_generalInformationModel.json');
+	modelsmap["PredictiveModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/PredictiveModel_generalInformationView.json');
+    
+	modelsmap["PredictiveModelScopeModel.json"] = require('../../generatedswaggermainfiles/PredictiveModel_scopeModel.json');
+	modelsmap["PredictiveModelScopeView.json"] =  require('../../generatedswaggermainfiles/PredictiveModel_scopeView.json');
+    
+	modelsmap["PredictiveModelDataBackgroundModel.json"] = require('../../generatedswaggermainfiles/PredictiveModel_dataBackgroundModel.json');
+	modelsmap["PredictiveModelDataBackgroundView.json"] =  require('../../generatedswaggermainfiles/PredictiveModel_dataBackgroundView.json');
+    
+    //Model Math
+	modelsmap["PredictiveModelModelMathModel.json"] =  require('../../generatedswaggermainfiles/PredictiveModel_modelMathModel.json');
+	modelsmap["PredictiveModelModelMathView.json"] =  require('../../generatedswaggermainfiles/PredictiveModel_modelMathView.json');
+	
+	
+	
+	
 	//DoseResponseModel
 	modelsmap["DoseResponseModelGeneralInformationModel.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_generalInformationModel.json');
 	modelsmap["DoseResponseModelGeneralInformationView.json"] =  require('../../generatedswaggermainfiles/DoseResponseModel_generalInformationView.json');
@@ -467,7 +483,7 @@ window.store21 = createStore(
 window.store21.dispatch(Actions.init({}, window.schema21, window.uischema21));
 
 
-store22 = createStore(
+window.store22 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
 		  {
 		    jsonforms: {
@@ -476,8 +492,8 @@ store22 = createStore(
 		    }
 		  }
 		);
-store22.dispatch(Actions.init({}, schema22, uischema22));
-
+window.store22.dispatch(Actions.init({}, schema22, uischema22));
+window.toBeReplacedMap["Reference"] = window.store22;
 window.store23 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
 		  {
@@ -530,9 +546,10 @@ ReactDOM.render(React.createFactory(Provider)({store: store6},
 ReactDOM.render(React.createFactory(Provider)({store: store17},
 		App()
 ), document.getElementById('modelMath'));
-}catch(err){//console.log("modelMath " + err);
+}catch(err){console.log("modelMath " + err);
 	
 }
+
 notAProperDiv = $("div:contains('No applicable'):not(:has(div))");
 
 $.each(notAProperDiv, function( index, value ) {
@@ -543,7 +560,7 @@ $.each(notAProperDiv, function( index, value ) {
 			
 			parentxc = value.parentNode;
 			areaName =  parentxc.firstChild.textContent;
-			
+			console.log("No applicable",areaName);
 			if(parentxc.firstChild.textContent.indexOf('*') >= 0){
 				areaName = areaName.slice(0,-1);
 			}
@@ -552,7 +569,6 @@ $.each(notAProperDiv, function( index, value ) {
 			}else if(areaName == 'Modification Date'){
 				areaName = "modificationDate";
 			}
-			console.log(areaName, value,parentxc,window.toBeReplacedMap);
 			if(areaName.indexOf('No applicable field found') < 0){
 				$(value).remove();
 				if(areaName !='Exposure' ){
@@ -565,7 +581,7 @@ $.each(notAProperDiv, function( index, value ) {
 				), document.getElementById(areaName));
 			}
 	}catch(err){
-		//console.log("loop ",parentxc, err);
+		console.log("loop ",parentxc, err);
 	}
 	
 });
@@ -608,10 +624,10 @@ window.savereference = function () {
 	
 	if(window.generalInformation.reference == undefined){
 		window.generalInformation.reference = [];
-		window.generalInformation.reference.push(store22.getState().jsonforms.core.data);
+		window.generalInformation.reference.push(window.store22.getState().jsonforms.core.data);
 		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}else{
-		window.generalInformation.reference.push(store22.getState().jsonforms.core.data);
+		window.generalInformation.reference.push(window.store22.getState().jsonforms.core.data);
 		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
     
@@ -658,10 +674,10 @@ $(parent8).append(
         "</div>");
 
 try{
-ReactDOM.render(React.createFactory(Provider)({store: store22},
+ReactDOM.render(React.createFactory(Provider)({store: window.store22},
 		App()
 ), document.getElementById('referenceModelContent'));
-}catch(err){//console.log("reference " + err);
+}catch(err){console.log("reference " + err);
 	
 }
 
@@ -723,7 +739,7 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: store24},
 		App()
 ), document.getElementById('creatorModelContent'));
-}catch(err){//console.log("modificationDate " + err);
+}catch(err){console.log("modificationDate " + err);
 	
 }
 
@@ -783,7 +799,7 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: store23},
 		App()
 ), document.getElementById('authorModelContent'));
-}catch(err){//console.log("modificationDate " + err);
+}catch(err){console.log("modificationDate " + err);
 	
 }
 
@@ -847,7 +863,7 @@ try{
 	
 	
 parent10 = document.getElementById('modelMath');
-}catch(err){//console.log("product " + err);
+}catch(err){console.log("product " + err);
 	
 }
 //popup hazard
@@ -907,7 +923,7 @@ try{
 		App()
 ), document.getElementById('hazardModelContent'));
 parent10 = document.getElementById('modelMath');
-}catch(err){//console.log("hazard " + err);
+}catch(err){console.log("hazard " + err);
 	
 }
 
@@ -968,7 +984,7 @@ try{
 ReactDOM.render(React.createFactory(Provider)({store: window.store18},
 		App()
 ), document.getElementById('parameterModelContent'));
-}catch(err){//console.log("parameter " + err);
+}catch(err){console.log("parameter " + err);
 	
 }
 window.saveModelequation = function () {
@@ -1025,7 +1041,7 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: window.store19},
 		App()
 ), document.getElementById('modelequationModelContent'));
-}catch(err){//console.log("modelequation " + err);
+}catch(err){console.log("modelequation " + err);
 	
 }
 
@@ -1086,7 +1102,7 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: window.store29},
 		App()
 ), document.getElementById('studySampleModelContent'));
-}catch(err){//console.log("event " + err);
+}catch(err){console.log("event " + err);
 	console.log("studySampleModelContent " + err);
 }
 
@@ -1148,7 +1164,7 @@ try{
 		App()
 ), document.getElementById('dietaryAssessmentMethodModelContent'));
 }catch(err){//
-	//console.log("dietaryAssessmentMethodModelContent " + err);
+	console.log("dietaryAssessmentMethodModelContent " + err);
 }
 
 
@@ -1269,7 +1285,7 @@ try{
 		App()
 ), document.getElementById('assayModelContent'));
 }catch(err){
-	//console.log("assayModelContent" + err);
+	console.log("assayModelContent" + err);
 }
 
 //popup populationGroup
@@ -1343,5 +1359,6 @@ ReactDOM.render(React.createFactory(Provider)({store: window.store5},
 		App()
 ), document.getElementById('populationGroupModelContent'));
 }catch(err){
+	console.log("populationGroupModelContent",err);
 }
 }();

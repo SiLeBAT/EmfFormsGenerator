@@ -40,7 +40,7 @@ public class App {
 	static Properties props = new Properties();
 
 	public static void main(String[] args) throws IOException {
-		Swagger2EMFBridge.main(args);
+		Swagger2JSONFormsBridge.main(args);
 		LOGGER.setLevel(Level.INFO);
 		String finaleOutput = "tmp/mininodeserver/";
 		final NodeJS nodeJS = NodeJS.createNodeJS();
