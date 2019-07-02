@@ -66,6 +66,8 @@ public class App {
 				"");
 		IOUtils.write(dar, new FileOutputStream(inFile), "UTF8");
 		nodeJS.release();
+		
+		
 	}
 
 	

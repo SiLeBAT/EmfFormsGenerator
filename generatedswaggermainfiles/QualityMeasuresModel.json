@@ -1,1 +1,1 @@
-{"type":"object","properties":{"RSquared":{"type":"number"},"RMSE":{"type":"number"},"AIC":{"type":"number"},"SSE":{"type":"number"},"BIC":{"type":"number"},"MSE":{"type":"number"}},"additionalProperties":false}
+{"type":"object","properties":{"RSquared":{"format":"double","type":"number"},"RMSE":{"format":"double","type":"number"},"AIC":{"format":"double","type":"number"},"SSE":{"format":"double","type":"number"},"BIC":{"format":"double","type":"number"},"MSE":{"format":"double","type":"number"}},"additionalProperties":false}

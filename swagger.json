@@ -15,31 +15,40 @@
       ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "A name given to the assay"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "General description of the assay. Corresponds to the Protocol REF in ISA"
         },
         "moisturePercentage": {
-          "type": "string"
+          "type": "string",
+          "description": "Percentage of moisture in the original sample"
         },
         "fatPercentage": {
-          "type": "string"
+          "type": "string",
+          "description": "Percentage of fat in the original sample"
         },
         "detectionLimit": {
-          "type": "string"
+          "type": "string",
+          "description": "Limit of detection reported in the unit specified by the variable 'Hazard unit'"
         },
         "quantificationLimit": {
-          "type": "string"
+          "type": "string",
+          "description": "Limit of quantification reported in the unit specified by the variable 'Hazard unit'"
         },
         "leftCensoredData": {
-          "type": "string"
+          "type": "string",
+          "description": "Percentage of measures equal to LOQ and/or LOD"
         },
         "contaminationRange": {
-          "type": "string"
+          "type": "string",
+          "description": "Range of result of the analytical measure reported in the unit specified by the variable 'Hazard unit' before censored data treatment"
         },
         "uncertaintyValue": {
-          "type": "string"
+          "type": "string",
+          "description": "Indicate the expanded uncertainty (usually 95% confidence interval) value associated with the measurement expressed in the unit reported in the field 'Hazard unit'"
         }
       }
     },
@@ -91,41 +100,6 @@
         "email"
       ]
     },
-    "Exposure": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string"
-        },
-        "uncertaintyEstimation": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "methodologicalTreatmentOfLeftCensoredData": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "levelOfContaminationAfterLeftCensoredDataTreatment": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "scenario": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type"
-      ]
-    },
     "Hazard": {
       "type": "object",
       "required": [
@@ -133,46 +107,60 @@
       ],
       "properties": {
         "type": {
-          "type": "string"
+          "type": "string",
+          "description": "General classification of the hazard for which the model or data applies"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the hazard (agent, contaminant, chemical) for which the data or model applies"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "Description of the hazard for which the model or data applies"
         },
         "unit": {
-          "type": "string"
+          "type": "string",
+          "description": "Unit of the hazard for which the model or data applies"
         },
         "adverseEffect": {
-          "type": "string"
+          "type": "string",
+          "description": "Adverse effect induced by hazard about morbidity, mortality, and etcetera"
         },
         "sourceOfContamination": {
-          "type": "string"
+          "type": "string",
+          "description": "Origin of the contamination, source"
         },
         "benchmarkDose": {
-          "type": "string"
+          "type": "string",
+          "description": "A dose or concentration that produces a predetermined change in response rate of an adverse effect (called the benchmark response or BMR) compared to background"
         },
         "maximumResidueLimit": {
-          "type": "string"
+          "type": "string",
+          "description": "International regulations and permissible maximum residue levels in food and drinking water"
         },
         "noObservedAdverseAffectLevel": {
-          "type": "string"
+          "type": "string",
+          "description": "Level of exposure of an organism, found by experiment or observation, at which there is no biologically or statistically significant increase in the frequency or severity of any adverse effects in the exposed population when compared to its appropriate control"
         },
         "lowestObservedAdverseAffectLevel": {
-          "type": "string"
+          "type": "string",
+          "description": "Lowest concentration or amount of a substance found by experiment or observation that causes an adverse alteration of morphology, function, capacity, growth, development, or lifespan of a target organism distinguished from normal organisms of the same species under defined conditions of exposure"
         },
         "acceptableOperatorsExposureLevel": {
-          "type": "string"
+          "type": "string",
+          "description": "Maximum amount of active substance to which the operator may be exposed without any adverse health effects. The AOEL is expressed as milligrams of the chemical per kilogram body weight of the operator"
         },
         "acuteReferenceDose": {
-          "type": "string"
+          "type": "string",
+          "description": "An estimate (with uncertainty spanning perhaps an order of magnitude) of a daily oral exposure for an acute duration (24 hours or less) to the human population (including sensitive subgroups) that is likely to be without an appreciable risk of deleterious effects during a lifetime"
         },
         "acceptableDailyIntake": {
-          "type": "string"
+          "type": "string",
+          "description": "Measure of amount of a specific substance in food or in drinking water tahta can be ingested (orally) on a daily basis over a lifetime without an appreciable health risk"
         },
         "indSum": {
-          "type": "string"
+          "type": "string",
+          "description": "Define if the parameter reported is an individual residue/analyte, a summed residue definition or part of a sum a summed residue definition"
         }
       }
     },
@@ -185,14 +173,17 @@
         "accreditation": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "The laboratory accreditation to ISO/IEC 17025"
           }
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Laboratory code (National laboratory code if available) or Laboratory name"
         },
         "country": {
-          "type": "string"
+          "type": "string",
+          "description": "Country where the laboratory is placed. (ISO 3166-1-alpha-2)"
         }
       }
     },
@@ -204,24 +195,29 @@
       ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "A name given to the model equation"
         },
         "class": {
-          "type": "string"
+          "type": "string",
+          "description": "Information on that helps to categorize model equations"
         },
         "reference": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Reference"
+            "$ref": "#/definitions/Reference",
+            "description": "Information on the source, where the equation has been extracted from"
           }
         },
         "modelEquation": {
-          "type": "string"
+          "type": "string",
+          "description": "The pointer to the file that holds the software code (e.g. R-script)"
         },
         "modelHypothesis": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of the hypothesis of the model"
           }
         }
       }
@@ -233,21 +229,25 @@
       ],
       "properties": {
         "modelClass": {
-          "type": "string"
+          "type": "string",
+          "description": "Type of model according to RAKIP classification"
         },
         "modelSubClass": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Sub-cassification of the model given the Model Class"
           }
         },
         "modelClassComment": {
-          "type": "string"
+          "type": "string",
+          "description": "Empty"
         },
         "basicProcess": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Defines the impact of the process on the hazard (so far only valid for process models and predictive models)"
           }
         }
       }
@@ -263,10 +263,12 @@
       ],
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "An unambiguous ID given to each of the parameters - preferably autogenerated by a software tool and compatible with SBML ID requirements, only letters from A to Z, numbers and '_'"
         },
         "classification": {
           "type": "string",
+          "description": "General classification of the parameter (e.g. Input, Constant, Output...)",
           "enum": [
             "constant",
             "input",
@@ -274,19 +276,24 @@
           ]
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "A name given to the parameter"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "General description of the parameter"
         },
         "unit": {
-          "type": "string"
+          "type": "string",
+          "description": "Unit of the parameter"
         },
         "unitCategory": {
-          "type": "string"
+          "type": "string",
+          "description": "Empty"
         },
         "dataType": {
           "type": "string",
+          "description": "Information on the data format of the parameter, e.g. if it the input parameter is a file location or a date or a number. This is important for software tools interpreting the metadata and generate user interfaces for parameter input.",
           "enum": [
             "integer",
             "double",
@@ -303,31 +310,40 @@
           ]
         },
         "source": {
-          "type": "string"
+          "type": "string",
+          "description": "Information on the type of knowledge used to define the parameter value"
         },
         "subject": {
-          "type": "string"
+          "type": "string",
+          "description": "Scope of the parameter, e.g. if it refers to an animal, a batch of animals, a batch of products, a carcass, a carcass skin etc"
         },
         "distribution": {
-          "type": "string"
+          "type": "string",
+          "description": "Distribution describing the parameter variabilty. If no distribution selected this means the value provided in \"Parameter value\" is a point estimate. In case a distribution is selected the value provided in \"Parameter value\" is a string that the model code can parse in order to sample from the named distribution"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "description": "A default value for the parameter. This is mandatory (needs to be provided) for all parameters of type 'Input'"
         },
         "reference": {
-          "$ref": "#/definitions/Reference"
+          "$ref": "#/definitions/Reference",
+          "description": "Information on the source, where the value of the parameter has been extracted from - if available. The format should use that used in other \"Reference\" metadata. Preferably DOI."
         },
         "variabilitySubject": {
-          "type": "string"
+          "type": "string",
+          "description": "Information 'per what' the variability is described. It can be variability between broiler in a flock,  variability between all meat packages sold, variability between days, etc."
         },
         "minValue": {
-          "type": "string"
+          "type": "string",
+          "description": "Numerical value of the minimum limit of the parameter that determines the range of applicability for which the model applies"
         },
         "maxValue": {
-          "type": "string"
+          "type": "string",
+          "description": "Numerical value of the maximum limit of the parameter that determines the range of applicability for which the model applies"
         },
         "error": {
-          "type": "string"
+          "type": "string",
+          "description": "Error of the parameter value"
         }
       }
     },
@@ -338,72 +354,85 @@
       ],
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Name of the population for which the model or data applies"
         },
         "targetPopulation": {
-          "type": "string"
+          "type": "string",
+          "description": "Population of individual that we are interested in describing and making statistical inferences about"
         },
         "populationSpan": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Temporal information on the exposure duration"
           }
         },
         "populationDescription": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of the population for which the model applies (demographic and socio-economic characteristics for example). Background information that are needed in the data analysis phase, size of household, education level, employment status, professional category, ethnicity, etc."
           }
         },
         "populationAge": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of the range of age or group of age"
           }
         },
         "populationGender": {
-          "type": "string"
+          "type": "string",
+          "description": "Description of the percentage of gender"
         },
         "bmi": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of the range of BMI or class of BMI or BMI mean"
           }
         },
         "specialDietGroups": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of sub-population with special diets (vegetarians, diabetics, group following special ethnic diets)"
           }
         },
         "patternConsumption": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of the consumption of different food items, frequency, portion size"
           }
         },
         "region": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Spatial information (area) on which the population group of the model or data applies"
           }
         },
         "country": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Country on which the population group of the model or data applies"
           }
         },
         "populationRiskFactor": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Population risk factor that may influence the outcomes of the study, confounder should be included"
           }
         },
         "season": {
           "type": "array",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Distribution of surveyed people according to the season (influence consumption pattern)"
           }
         }
       }
@@ -412,22 +441,28 @@
       "type": "object",
       "properties": {
         "SSE": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         },
         "MSE": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         },
         "RMSE": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         },
         "RSquared": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         },
         "AIC": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         },
         "BIC": {
-          "type": "number"
+          "type": "number",
+          "format": "double"
         }
       }
     },
@@ -442,7 +477,7 @@
         "isReferenceDescription": {
           "type": "boolean"
         },
-        "publicationType": {
+        "type": {
           "type": "array",
           "items": {
             "type": "string",
@@ -641,6 +676,42 @@
           "type": "string"
         },
         "samplingPoint": {
+          "type": "string"
+        }
+      }
+    },
+    "Exposure": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "treatment": {
+          "description": "Methodological treatment of left-censored data",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contamination": {
+          "description": "Level of contamination after left-censored data treatment",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "type": {
+          "description": "Type of exposure",
+          "type": "string"
+        },
+        "scenario": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "uncertaintyEstimation": {
+          "description": "Uncertainty estimation",
           "type": "string"
         }
       }
