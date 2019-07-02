@@ -1,0 +1,2184 @@
+swagger: "2.0"
+info:
+  description: TODO
+  version: 1.0.4
+  title: RAKIP Generic model
+host: TODO
+paths: {}
+definitions:
+  Assay:
+    type: object
+    required:
+     - name
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      moisturePercentage:
+        type: string
+      fatPercentage:
+        type: string
+      detectionLimit:
+        type: string
+      quantificationLimit:
+        type: string
+      leftCensoredData:
+        type: string
+      contaminationRange:
+        type: string
+      uncertaintyValue:
+        type: string
+
+  Contact:
+    type: object
+    properties:
+      title:
+        type: string
+      familyName:
+        type: string
+      givenName:
+        type: string
+      email:
+        type: string
+        format: email
+      telephone:
+        type: string
+      streetAddress:
+        type: string
+      country:
+        type: string
+      zipCode:
+        type: string
+      region:
+        type: string
+      timeZone:
+        type: string
+      gender:
+        type: string
+      note:
+        type: string
+      organization:
+        type: string
+    required:
+     - email
+
+  Hazard:
+    type: object
+    required:
+    - name
+    properties:
+      type:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      unit:
+        type: string
+      adverseEffect:
+        type: string
+      sourceOfContamination:
+        type: string
+      benchmarkDose:
+        type: string
+      maximumResidueLimit:
+        type: string
+      noObservedAdverseAffectLevel:
+        type: string      
+      lowestObservedAdverseAffectLevel:
+        type: string
+      acceptableOperatorsExposureLevel:
+        type: string
+      acuteReferenceDose:
+        type: string
+      acceptableDailyIntake:
+        type: string
+      indSum:
+        type: string
+
+  Laboratory:
+    type: object
+    required:
+    - accreditation
+    properties:
+      accreditation:
+        type: array
+        items:
+          type: string
+      name:
+        type: string
+      country:
+        type: string
+
+  ModelEquation:
+    type: object
+    required:
+    - name
+    - modelEquation
+    properties:
+      name:
+        type: string
+      class:
+        type: string
+      reference:
+        type: array
+        items:
+          $ref: '#/definitions/Reference'
+      modelEquation:
+        type: string
+      modelHypothesis:
+        type: array
+        items:
+          type: string
+
+  ModelCategory:
+    type: object
+    required:
+    - modelClass
+    properties:
+      modelClass:
+        type: string
+      modelSubClass:
+        type: array
+        items:
+          type: string
+      modelClassComment:
+        type: string
+      basicProcess:
+        type: array
+        items:
+          type: string
+
+  Parameter:
+    type: object
+    required:
+    - id
+    - classification
+    - name
+    - unit
+    - dataType
+    properties:
+      id:
+        type: string
+      classification:
+        type: string
+        enum:
+         - constant
+         - input
+         - output
+      name:
+        type: string
+      description:
+        type: string
+      unit:
+        type: string
+      unitCategory:
+        type: string
+      dataType:
+        type: string
+        enum:
+         - integer
+         - double
+         - number
+         - date
+         - file
+         - boolean
+         - vectorOfNumbers
+         - vectorOfStrings
+         - matrixOfNumbers
+         - matrixOfStrings
+         - object
+         - string
+      source:
+        type: string
+      subject:
+        type: string
+      distribution:
+        type: string
+      value:
+        type: string
+      reference:
+        $ref: '#/definitions/Reference'
+      variabilitySubject:
+        type: string
+      minValue:
+        type: string
+      maxValue:
+        type: string
+      error:
+        type: string
+
+  PopulationGroup:
+    type: object
+    required:
+     - name
+    properties:
+      name:
+        type: string
+      targetPopulation:
+        type: string
+      populationSpan:
+        type: array
+        items:
+          type: string
+      populationDescription:
+        type: array
+        items:
+          type: string
+      populationAge:
+        type: array
+        items:
+          type: string
+      populationGender:
+        type: string
+      bmi:
+        type: array
+        items:
+          type: string
+      specialDietGroups:
+        type: array
+        items:
+          type: string
+      patternConsumption:
+        type: array
+        items:
+          type: string
+      region:
+        type: array
+        items:
+          type: string
+      country:
+        type: array
+        items:
+          type: string
+      populationRiskFactor:
+        type: array
+        items:
+          type: string
+      season:
+        type: array
+        items:
+          type: string
+  
+  QualityMeasures:
+    type: object
+    properties:
+      SSE:
+        type: number
+        format: double
+      MSE:
+        type: number
+        format: double
+      RMSE:
+        type: number
+        format: double
+      RSquared:
+        type: number
+        format: double
+      AIC:
+        type: number
+        format: double
+      BIC:
+        type: number
+        format: double
+
+  Reference:
+    type: object
+    required:
+    - isReferenceDescription
+    - doi
+    - title
+    properties:
+      isReferenceDescription:
+        type: boolean
+      type:
+        type: array
+        items:
+          type: string
+          enum:
+           - ABST
+           - ADVS
+           - AGGR
+           - ANCIENT
+           - ART
+           - BILL
+           - BLOG
+           - BOOK
+           - CASE
+           - CHAP
+           - CHART
+           - CLSWK
+           - COMP
+           - CONF
+           - CPAPER
+           - CTLG
+           - DATA
+           - DBASE
+           - DICT
+           - EBOOK
+           - ECHAP
+           - EDBOOK
+           - EJOUR
+           - ELECT
+           - ENCYC
+           - EQUA
+           - FIGURE
+           - GEN
+           - GOVDOC
+           - GRANT
+           - HEAR
+           - ICOMM
+           - INPR
+           - JOUR
+           - JFULL
+           - LEGAL
+           - MANSCPT
+           - MAP
+           - MGZN
+           - MPCT
+           - MULTI
+           - MUSIC
+           - NEW
+           - PAMP
+           - PAT
+           - PCOMM
+           - RPRT
+           - SER
+           - SLIDE
+           - SOUND
+           - STAND
+           - STAT
+           - THES
+           - UNPB
+           - VIDEO
+      date:
+        type: string
+        format: date
+      pmid:
+        type: string
+      doi:
+        type: string
+      authorList:
+        type: string
+      title:
+        type: string
+      abstract:
+        type: string
+      journal:
+        type: string
+      volume:
+        type: string
+      issue:
+        type: string
+      status:
+        type: string
+      website:
+        type: string
+      comment:
+        type: string
+
+  Study:
+    type: object
+    required:
+     - title
+    properties:
+      identifier:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      designType:
+        type: string
+      assayMeasurementType:
+        type: string
+      assayTechnologyType:
+        type: string
+      assayTechnologyPlatform:
+        type: string
+      assayTechnologyTypePlatform:
+        type: string
+      accreditationProcedureForTheAssayTechnology:
+        type: string
+      protocolName:
+        type: string
+      protocolType:
+        type: string
+      protocolDescription:
+        type: string
+      protocolURI:
+        type: string
+      protocolVersion:
+        type: string
+      protocolParametersName:
+        type: string
+      protocolComponentsName:
+        type: string
+      protocolComponentsType:
+        type: string
+
+  StudySample:
+    type: object
+    required:
+     - sampleName
+     - protocolOfSampleCollection
+     - samplingPlan
+     - samplingWeight
+     - samplingSize
+    properties:
+      sampleName:
+        type: string
+      protocolOfSampleCollection:
+        type: string
+      samplingStrategy:
+        type: string
+      typeOfSamplingProgram:
+        type: string
+      samplingMethod:
+        type: string
+      samplingPlan:
+        type: string
+      samplingWeight:
+        type: string
+      samplingSize:
+        type: string
+      lotSizeUnit:
+        type: string
+      samplingPoint:
+        type: string
+
+  Exposure:
+    type: object
+    required:
+    - type
+    properties:
+      treatment:
+        description: Methodological treatment of left-censored data
+        type: array
+        items:
+          type: string
+      contamination:
+        description: Level of contamination after left-censored data treatment
+        type: array
+        items:
+          type: string
+      type:
+        description: Type of exposure
+        type: string
+      scenario:
+        type: array
+        items:
+          type: string
+      uncertaintyEstimation:
+        description: Uncertainty estimation
+        type: string
+
+  Product:
+    type: object
+    required:
+    - name
+    - unit
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      unit:
+        type: string
+      method:
+        type: array
+        items:
+          type: string
+      packaging:
+        type: array
+        items:
+          type: string
+      treatment:
+        type: array
+        items:
+          type: string
+      originCountry:
+        type: string
+      originArea:
+        type: string
+      fisheriesArea:
+        type: string
+      productionDate:
+        type: string
+        format: date
+      expiryDate:
+        type: string
+        format: date
+
+  DietaryAssessmentMethod:
+    type: object
+    required:
+    - collectionTool
+    - numberOfNonConsecutiveOneDay
+    - numberOfFoodItems
+    - recordTypes
+    - foodDescriptors
+    properties:
+      collectionTool:
+        type: string
+      numberOfNonConsecutiveOneDay:
+        type: string
+      softwareTool:
+        type: string
+      numberOfFoodItems:
+        type: array
+        items:
+          type: string
+      recordTypes:
+        type: array
+        items:
+          type: string
+      foodDescriptors:
+        type: array
+        items:
+          type: string
+
+  Model:
+    type: object
+    discriminator: modelType
+    properties:
+      modelType:
+        type: string
+    required:
+    - modelType
+
+  GenericModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            dietaryAssessmentMethod:
+              type: array
+              items:
+                $ref: '#/definitions/DietaryAssessmentMethod'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            exposure:
+              type: array
+              items:
+                $ref: '#/definitions/Exposure'
+            event:
+              type: array
+              items:
+                type: string
+
+  DataModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            dietaryAssessmentMethod:
+              type: array
+              items:
+                $ref: '#/definitions/DietaryAssessmentMethod'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+
+  PredictiveModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - product
+          - hazard
+          properties:
+            product:
+              type: array
+              items:
+                type: object
+                required:
+                - name
+                - unit
+                properties:
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  unit:
+                    type: string
+                  method:
+                    type: array
+                    items:
+                      type: string
+                  packaging:
+                    type: array
+                    items:
+                      type: string
+                  treatment:
+                    type: array
+                    items:
+                      type: string
+                  originCountry:
+                    type: string
+                  originArea:
+                    type: string
+                  fisheriesArea:
+                    type: string
+                  productionDate:
+                    type: string
+                    format: date
+                  expiryDate:
+                    type: string
+                    format: date
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            event:
+              type: array
+              items:
+                type: string
+
+  OtherModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            event:
+              type: array
+              items:
+                type: string
+
+  ExposureModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - product
+          - hazard
+          - populationGroup
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            dietaryAssessmentMethod:
+              type: array
+              items:
+                $ref: '#/definitions/DietaryAssessmentMethod'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            exposure:
+              type: array
+              items:
+                $ref: '#/definitions/Exposure'
+            event:
+              type: array
+              items:
+                type: string
+
+  ToxicologicalModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          properties:
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            exposure:
+              type: array
+              items:
+                $ref: '#/definitions/Exposure'
+            event:
+              type: array
+              items:
+                type: string
+
+  DoseResponseModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - modelName
+          - identifier
+          - creator
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            modelName:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - hazard
+          - populationGroup
+          properties:
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            exposure:
+              $ref: '#/definitions/Exposure'
+            event:
+              type: array
+              items:
+                type: string
+
+  ProcessModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - product
+          - hazard
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            event:
+              type: array
+              items:
+                type: string
+
+  ConsumptionModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - product
+          - populationGroup
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            dietaryAssessmentMethod:
+              type: array
+              items:
+                $ref: '#/definitions/DietaryAssessmentMethod'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            event:
+              type: array
+              items:
+                type: string
+
+  HealthModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - hazard
+          - populationGroup
+          properties:
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            exposure:
+              type: array
+              items:
+                $ref: '#/definitions/Exposure'
+            event:
+              type: array
+              items:
+                type: string
+
+  RiskModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - product
+          - hazard
+          - populationGroup
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            dietaryAssessmentMethod:
+              type: array
+              items:
+                $ref: '#/definitions/DietaryAssessmentMethod'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            exposure:
+              type: array
+              items:
+                $ref: '#/definitions/Exposure'
+            event:
+              type: array
+              items:
+                type: string
+
+  QraModel:
+    type: object
+    allOf:
+    - $ref: '#/definitions/Model'
+    - type: object
+      properties:
+        generalInformation:
+          type: object
+          required:
+          - name
+          - identifier
+          - creationDate
+          - rights
+          - reference
+          - languageWrittenIn
+          properties:
+            name:
+              type: string
+            source:
+              type: string
+            identifier:
+              type: string
+            author:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creator:
+              type: array
+              items:
+                $ref: '#/definitions/Contact'
+            creationDate:
+              type: string
+              format: date
+            modificationDate:
+              type: array
+              items:
+                type: string
+                format: date
+            rights:
+              type: string
+            availability:
+              type: string
+            url:
+              type: string
+              format: uri
+            format:
+              type: string
+            reference:
+              type: array
+              items:
+                $ref: '#/definitions/Reference'
+            language:
+              type: string
+            software:
+              type: string
+            languageWrittenIn:
+              type: string
+            modelCategory:
+              $ref: '#/definitions/ModelCategory'
+            status:
+              type: string
+            objective:
+              type: string
+            description:
+              type: string
+        scope:
+          type: object
+          required:
+          - product
+          - hazard
+          - populationGroup
+          properties:
+            product:
+              type: array
+              items:
+                $ref: '#/definitions/Product'
+            hazard:
+              type: array
+              items:
+                $ref: '#/definitions/Hazard'
+            populationGroup:
+              type: array
+              items:
+                $ref: '#/definitions/PopulationGroup'
+            generalComment:
+              type: string
+            temporalInformation:
+              type: string
+            spatialInformation:
+              type: array
+              items:
+                type: string
+        dataBackground:
+          type: object
+          required:
+          - study
+          properties:
+            study:
+              $ref: '#/definitions/Study'
+            studySample:
+              type: array
+              items:
+                $ref: '#/definitions/StudySample'
+            dietaryAssessmentMethod:
+              type: array
+              items:
+                $ref: '#/definitions/DietaryAssessmentMethod'
+            laboratory:
+              type: array
+              items:
+                $ref: '#/definitions/Laboratory'
+            assay:
+              type: array
+              items:
+                $ref: '#/definitions/Assay'
+        modelMath:
+          type: object
+          required:
+          - parameter
+          properties:
+            parameter:
+              type: array
+              items:
+                $ref: '#/definitions/Parameter'
+            qualityMeasures:
+              type: array
+              items:
+                $ref: '#/definitions/QualityMeasures'
+            modelEquation:
+              type: array
+              items:
+                $ref: '#/definitions/ModelEquation'
+            fittingProcedure:
+              type: string
+            exposure:
+              type: array
+              items:
+                $ref: '#/definitions/Exposure'
+            event:
+              type: array
+              items:
+                type: string
