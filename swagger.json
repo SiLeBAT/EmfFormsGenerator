@@ -442,27 +442,31 @@
       "properties": {
         "SSE": {
           "type": "number",
-          "format": "double"
+          "description": "Statistical values calculated to describe the performance of the model fitting procedure"
         },
         "MSE": {
           "type": "number",
-          "format": "double"
+          "description": "Statistical values calculated to describe the performance of the model fitting procedure"
         },
         "RMSE": {
           "type": "number",
-          "format": "double"
+          "description": "Statistical values calculated to describe the performance of the model fitting procedure"
         },
         "RSquared": {
           "type": "number",
-          "format": "double"
+          "description": "Statistical values calculated to describe the performance of the model fitting procedure"
         },
         "AIC": {
           "type": "number",
-          "format": "double"
+          "description": "Statistical values calculated to describe the performance of the model fitting procedure"
         },
         "BIC": {
           "type": "number",
-          "format": "double"
+          "description": "Statistical values calculated to describe the performance of the model fitting procedure"
+        },
+        "sensitivityAnalysis": {
+          "type": "string",
+          "description": "Description of the results of an sensitivity analysis, i.e. how independence assumptions are met or how variables will affect the output of model"
         }
       }
     },
@@ -475,10 +479,12 @@
       ],
       "properties": {
         "isReferenceDescription": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether this specific publication serves as the reference description for the model. There has to be at least one reference where this field is set to 'True'"
         },
-        "type": {
+        "PublicationType": {
           "type": "array",
+          "description": "The type of publication, e.g. Report, Journal article, Book, Online database, ...",
           "items": {
             "type": "string",
             "enum": [
@@ -542,40 +548,52 @@
         },
         "date": {
           "type": "string",
-          "format": "date"
+          "format": "date",
+          "description": "Temporal information on the publication date"
         },
         "pmid": {
-          "type": "string"
+          "type": "string",
+          "description": "The PubMed ID related to this publication"
         },
         "doi": {
-          "type": "string"
+          "type": "string",
+          "description": "The DOI related to this publication"
         },
         "authorList": {
-          "type": "string"
+          "type": "string",
+          "description": "Name and surname of the authors who contributed to this publication"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "Title of the publication in which the model or the data has been described"
         },
         "abstract": {
-          "type": "string"
+          "type": "string",
+          "description": "Abstract of the publication in which the model or the data has been described"
         },
         "journal": {
-          "type": "string"
+          "type": "string",
+          "description": "Data on the details of the journal in which the model or the data has been described"
         },
         "volume": {
-          "type": "string"
+          "type": "string",
+          "description": "Data on the details of the journal in which the model or the data has been described"
         },
         "issue": {
-          "type": "string"
+          "type": "string",
+          "description": "Data on the details of the journal in which the model or the data has been described"
         },
         "status": {
-          "type": "string"
+          "type": "string",
+          "description": "The status of this publication, e.g. Published, Submitted, etc."
         },
         "website": {
-          "type": "string"
+          "type": "string",
+          "description": "A link to the publication website (different from DOI)"
         },
         "comment": {
-          "type": "string"
+          "type": "string",
+          "description": "Further comments related to the reference description, e.g. which section in there describes the specific model or which figure in there can be reproduced with the visualization script"
         }
       }
     },
@@ -586,55 +604,68 @@
       ],
       "properties": {
         "identifier": {
-          "type": "string"
+          "type": "string",
+          "description": "A user defined identifier for the study"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "A title for the Study"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "A brief description of the study aims"
         },
         "designType": {
-          "type": "string"
+          "type": "string",
+          "description": "The type of study design being employed"
         },
         "assayMeasurementType": {
-          "type": "string"
+          "type": "string",
+          "description": "The measurement being observed in this assay"
         },
         "assayTechnologyType": {
-          "type": "string"
+          "type": "string",
+          "description": "The technology being employed to observe this measurement"
         },
         "assayTechnologyPlatform": {
-          "type": "string"
-        },
-        "assayTechnologyTypePlatform": {
-          "type": "string"
+          "type": "string",
+          "description": "The technology platform used"
         },
         "accreditationProcedureForTheAssayTechnology": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolName": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolType": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolDescription": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolURI": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolParametersName": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolComponentsName": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         },
         "protocolComponentsType": {
-          "type": "string"
+          "type": "string",
+          "description": "Description"
         }
       }
     },
@@ -820,6 +851,117 @@
         "modelType"
       ]
     },
+    "GenericModelScope": {
+      "type": "object",
+      "properties": {
+        "product": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        },
+        "hazard": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Hazard"
+          }
+        },
+        "populationGroup": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PopulationGroup"
+          }
+        },
+        "generalComment": {
+          "type": "string"
+        },
+        "temporalInformation": {
+          "type": "string"
+        },
+        "spatialInformation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GenericModelDataBackground": {
+      "type": "object",
+      "required": [
+        "study"
+      ],
+      "properties": {
+        "study": {
+          "$ref": "#/definitions/Study"
+        },
+        "studySample": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudySample"
+          }
+        },
+        "dietaryAssessmentMethod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DietaryAssessmentMethod"
+          }
+        },
+        "laboratory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Laboratory"
+          }
+        },
+        "assay": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Assay"
+          }
+        }
+      }
+    },
+    "GenericModelModelMath": {
+      "type": "object",
+      "required": [
+        "parameter"
+      ],
+      "properties": {
+        "parameter": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Parameter"
+          }
+        },
+        "qualityMeasures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityMeasures"
+          }
+        },
+        "modelEquation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelEquation"
+          }
+        },
+        "fittingProcedure": {
+          "type": "string"
+        },
+        "exposure": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Exposure"
+          }
+        },
+        "event": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "GenericModel": {
       "type": "object",
       "allOf": [
@@ -829,7 +971,7 @@
         {
           "type": "object",
           "properties": {
-            "generalInformation": {
+            "GeneralInformation": {
               "type": "object",
               "required": [
                 "name",
@@ -914,115 +1056,13 @@
               }
             },
             "scope": {
-              "type": "object",
-              "properties": {
-                "product": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Product"
-                  }
-                },
-                "hazard": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Hazard"
-                  }
-                },
-                "populationGroup": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/PopulationGroup"
-                  }
-                },
-                "generalComment": {
-                  "type": "string"
-                },
-                "temporalInformation": {
-                  "type": "string"
-                },
-                "spatialInformation": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelScope"
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "dietaryAssessmentMethod": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/DietaryAssessmentMethod"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "exposure": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Exposure"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelModelMath"
             }
           }
         }
@@ -1113,74 +1153,10 @@
               }
             },
             "scope": {
-              "type": "object",
-              "properties": {
-                "product": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Product"
-                  }
-                },
-                "hazard": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Hazard"
-                  }
-                },
-                "populationGroup": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/PopulationGroup"
-                  }
-                },
-                "generalComment": {
-                  "type": "string"
-                },
-                "temporalInformation": {
-                  "type": "string"
-                },
-                "spatialInformation": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelScope"
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "dietaryAssessmentMethod": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/DietaryAssessmentMethod"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelDataBackground"
             },
             "modelMath": {
               "type": "object",
@@ -1200,6 +1176,155 @@
         }
       ]
     },
+    "PredictiveModelGeneralInformation": {
+      "type": "object",
+      "required": [
+        "name",
+        "identifier",
+        "creationDate",
+        "rights",
+        "reference",
+        "languageWrittenIn"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "author": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        },
+        "creator": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "modificationDate": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "rights": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "format": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reference"
+          }
+        },
+        "language": {
+          "type": "string"
+        },
+        "software": {
+          "type": "string"
+        },
+        "languageWrittenIn": {
+          "type": "string"
+        },
+        "modelCategory": {
+          "$ref": "#/definitions/ModelCategory"
+        },
+        "status": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "PredictiveModelDataBackground": {
+      "type": "object",
+      "required": [
+        "study"
+      ],
+      "properties": {
+        "study": {
+          "$ref": "#/definitions/Study"
+        },
+        "studySample": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StudySample"
+          }
+        },
+        "laboratory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Laboratory"
+          }
+        },
+        "assay": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Assay"
+          }
+        }
+      }
+    },
+    "PredictiveModelModelMath": {
+      "type": "object",
+      "required": [
+        "parameter"
+      ],
+      "properties": {
+        "parameter": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Parameter"
+          }
+        },
+        "qualityMeasures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QualityMeasures"
+          }
+        },
+        "modelEquation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModelEquation"
+          }
+        },
+        "fittingProcedure": {
+          "type": "string"
+        },
+        "event": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "PredictiveModel": {
       "type": "object",
       "allOf": [
@@ -1210,89 +1335,7 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
               "type": "object",
@@ -1378,68 +1421,10 @@
               }
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelModelMath"
             }
           }
         }
@@ -1642,6 +1627,46 @@
         }
       ]
     },
+    "ExposureModelScope": {
+      "type": "object",
+      "required": [
+        "product",
+        "hazard",
+        "populationGroup"
+      ],
+      "properties": {
+        "product": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        },
+        "hazard": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Hazard"
+          }
+        },
+        "populationGroup": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PopulationGroup"
+          }
+        },
+        "generalComment": {
+          "type": "string"
+        },
+        "temporalInformation": {
+          "type": "string"
+        },
+        "spatialInformation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "ExposureModel": {
       "type": "object",
       "allOf": [
@@ -1652,205 +1677,16 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
-              "type": "object",
-              "required": [
-                "product",
-                "hazard",
-                "populationGroup"
-              ],
-              "properties": {
-                "product": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Product"
-                  }
-                },
-                "hazard": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Hazard"
-                  }
-                },
-                "populationGroup": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/PopulationGroup"
-                  }
-                },
-                "generalComment": {
-                  "type": "string"
-                },
-                "temporalInformation": {
-                  "type": "string"
-                },
-                "spatialInformation": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/ExposureModelScope"
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "dietaryAssessmentMethod": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/DietaryAssessmentMethod"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "exposure": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Exposure"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelModelMath"
             }
           }
         }
@@ -1866,89 +1702,7 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
               "type": "object",
@@ -1980,74 +1734,10 @@
               }
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "exposure": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Exposure"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelModelMath"
             }
           }
         }
@@ -2178,33 +1868,7 @@
               }
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelDataBackground"
             },
             "modelMath": {
               "type": "object",
@@ -2258,89 +1922,7 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
               "type": "object",
@@ -2376,68 +1958,10 @@
               }
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelModelMath"
             }
           }
         }
@@ -2453,89 +1977,7 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
               "type": "object",
@@ -2571,74 +2013,10 @@
               }
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "dietaryAssessmentMethod": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/DietaryAssessmentMethod"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelModelMath"
             }
           }
         }
@@ -2654,89 +2032,7 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
               "type": "object",
@@ -2772,74 +2068,10 @@
               }
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "exposure": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Exposure"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelModelMath"
             }
           }
         }
@@ -2855,205 +2087,16 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
-              "type": "object",
-              "required": [
-                "product",
-                "hazard",
-                "populationGroup"
-              ],
-              "properties": {
-                "product": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Product"
-                  }
-                },
-                "hazard": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Hazard"
-                  }
-                },
-                "populationGroup": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/PopulationGroup"
-                  }
-                },
-                "generalComment": {
-                  "type": "string"
-                },
-                "temporalInformation": {
-                  "type": "string"
-                },
-                "spatialInformation": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/ExposureModelScope"
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "dietaryAssessmentMethod": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/DietaryAssessmentMethod"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "exposure": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Exposure"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelModelMath"
             }
           }
         }
@@ -3069,205 +2112,16 @@
           "type": "object",
           "properties": {
             "generalInformation": {
-              "type": "object",
-              "required": [
-                "name",
-                "identifier",
-                "creationDate",
-                "rights",
-                "reference",
-                "languageWrittenIn"
-              ],
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string"
-                },
-                "identifier": {
-                  "type": "string"
-                },
-                "author": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creator": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "creationDate": {
-                  "type": "string",
-                  "format": "date"
-                },
-                "modificationDate": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "format": "date"
-                  }
-                },
-                "rights": {
-                  "type": "string"
-                },
-                "availability": {
-                  "type": "string"
-                },
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                },
-                "format": {
-                  "type": "string"
-                },
-                "reference": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Reference"
-                  }
-                },
-                "language": {
-                  "type": "string"
-                },
-                "software": {
-                  "type": "string"
-                },
-                "languageWrittenIn": {
-                  "type": "string"
-                },
-                "modelCategory": {
-                  "$ref": "#/definitions/ModelCategory"
-                },
-                "status": {
-                  "type": "string"
-                },
-                "objective": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PredictiveModelGeneralInformation"
             },
             "scope": {
-              "type": "object",
-              "required": [
-                "product",
-                "hazard",
-                "populationGroup"
-              ],
-              "properties": {
-                "product": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Product"
-                  }
-                },
-                "hazard": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Hazard"
-                  }
-                },
-                "populationGroup": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/PopulationGroup"
-                  }
-                },
-                "generalComment": {
-                  "type": "string"
-                },
-                "temporalInformation": {
-                  "type": "string"
-                },
-                "spatialInformation": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/ExposureModelScope"
             },
             "dataBackground": {
-              "type": "object",
-              "required": [
-                "study"
-              ],
-              "properties": {
-                "study": {
-                  "$ref": "#/definitions/Study"
-                },
-                "studySample": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/StudySample"
-                  }
-                },
-                "dietaryAssessmentMethod": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/DietaryAssessmentMethod"
-                  }
-                },
-                "laboratory": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Laboratory"
-                  }
-                },
-                "assay": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Assay"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelDataBackground"
             },
             "modelMath": {
-              "type": "object",
-              "required": [
-                "parameter"
-              ],
-              "properties": {
-                "parameter": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Parameter"
-                  }
-                },
-                "qualityMeasures": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/QualityMeasures"
-                  }
-                },
-                "modelEquation": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/ModelEquation"
-                  }
-                },
-                "fittingProcedure": {
-                  "type": "string"
-                },
-                "exposure": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Exposure"
-                  }
-                },
-                "event": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/GenericModelModelMath"
             }
           }
         }

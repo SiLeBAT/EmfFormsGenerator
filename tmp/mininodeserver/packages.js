@@ -1,5 +1,5 @@
 var npm = require('./node/node_modules/npm');
-var myConfigObject = {"https-proxy":"http://webproxy.bfr.bund.de:8080",
+var myConfigObject = {"https-proxy":"https://webproxy.bfr.bund.de:8080",
 					  "http-proxy": "http://webproxy.bfr.bund.de:8080"}
 npm.load(myConfigObject,function(err) {
 

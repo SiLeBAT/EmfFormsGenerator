@@ -22,6 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.mortbay.util.ajax.JSON;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class Swagger2JSONFormsBridge {
 	static Map<String, String> filesAndContent = new Hashtable<String, String>();
@@ -65,7 +66,7 @@ public class Swagger2JSONFormsBridge {
 							String firstGeneratedContent = new String(Files.readAllBytes(path));
 							JSONObject changedJSONObject = iteratOverGeneratedFilesAndReplaceReferences(
 									new JSONObject(firstGeneratedContent), path.toString());
-							System.out.println(path.getFileName().toString());
+							// System.out.println(path.getFileName().toString());
 
 							String fileNameWithOutExt = FilenameUtils.removeExtension(path.getFileName().toString());
 							File f = new File("./generatedswaggermainfiles", fileNameWithOutExt + "Model.json");
@@ -90,15 +91,19 @@ public class Swagger2JSONFormsBridge {
 					if (path.toFile().isFile()) {
 						try {
 							String firstGeneratedContent = new String(Files.readAllBytes(path));
-							JSONObject changedJSONObject = generateUISchema(
-									new JSONObject(firstGeneratedContent).getJSONObject("properties"), path.toString());
 							System.out.println(path.getFileName().toString());
-
-							String fileNameWithOutExt = FilenameUtils.removeExtension(path.getFileName().toString());
-							File f = new File("./generatedswaggermainfiles",
-									replaceLast(fileNameWithOutExt, "Model", "") + "View.json");
-							saveObjectDefintion(changedJSONObject, f);
-						} catch (IOException e) {
+							JSONObject originalJSONObject = new JSONObject(firstGeneratedContent);
+							if (originalJSONObject.has("properties")) {
+								JSONObject changedJSONObject = generateUISchema(
+										originalJSONObject.getJSONObject("properties"), path.toString());
+								String fileNameWithOutExt = FilenameUtils
+										.removeExtension(path.getFileName().toString());
+								File f = new File("./generatedswaggermainfiles",
+										replaceLast(fileNameWithOutExt, "Model", "") + "View.json");
+								saveObjectDefintion(changedJSONObject, f);
+							}
+						} catch (Exception e) {
+							System.out.println(path.getFileName().toString());
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
@@ -117,7 +122,9 @@ public class Swagger2JSONFormsBridge {
 
 	public static void iteratOverJSONObject(String tabbing, String objectName, JSONObject jObject,
 			boolean keepObjectName, String parent) throws JSONException, IOException {
-		if (jObject.has("items") && ((String) jObject.get("type")).equals("array") && ((JSONObject)jObject.get("items")).has("type") && ((JSONObject)jObject.get("items")).get("type").equals("string")) {
+		if (jObject.has("items") && ((String) jObject.get("type")).equals("array")
+				&& ((JSONObject) jObject.get("items")).has("type")
+				&& ((JSONObject) jObject.get("items")).get("type").equals("string")) {
 			JSONObject propertiesObject = new JSONObject();
 			propertiesObject.put("value", jObject.get("items"));
 			jObject.remove("items");
@@ -126,7 +133,7 @@ public class Swagger2JSONFormsBridge {
 			itemsObject.put("type", "object");
 			itemsObject.put("additionalProperties", false);
 			jObject.put("items", itemsObject);
-			System.out.println(jObject);
+			// System.out.println(jObject);
 		}
 		if (jObject.has("properties") && jObject.has("type") && ((String) jObject.get("type")).equals("object")) {
 			jObject.put("additionalProperties", false);
@@ -135,7 +142,8 @@ public class Swagger2JSONFormsBridge {
 		Iterator<String> keys = jObject.keys();
 		while (keys.hasNext()) {
 			String key = keys.next();
-			System.out.println(tabbing + objectName + " has a key " + key);
+			// System.out.println(tabbing + objectName + " has a key " + key);
+
 			if (jObject.get(key) instanceof JSONObject) {
 				iteratOverJSONObject(tabbing + "\t", keepObjectName ? objectName : key, jObject.getJSONObject(key),
 						false, parent);
@@ -144,10 +152,30 @@ public class Swagger2JSONFormsBridge {
 					// new File("./generatedswaggermainfiles", objectName + ".json"));
 				} else {
 					if (!jObject.getJSONObject(key).toString().startsWith("{\"$ref\":\"#")) {
-						if (jObject.has("type") && jObject.get("type").equals("object")) {
-							saveObjectDefintion(jObject, new File("./generatedswaggersubfiles",
-									(parent != "" ? parent + "_" : "") + objectName + ".json"));
+						if (!objectName.equals("items") && jObject.has("type")
+								&& jObject.get("type").equals("object")) {
+
+							if (!StringUtils.isEmpty(parent)) {
+								saveObjectDefintion(jObject,
+										new File("./generatedswaggersubfiles",
+												parent + "_" + objectName.substring(0, 1).toLowerCase()
+														+ objectName.substring(1, objectName.length()) + ".json"));
+
+							} else {
+								saveObjectDefintion(jObject,
+										new File("./generatedswaggersubfiles", objectName + ".json"));
+							}
+
 						}
+					} else {
+						if (!StringUtils.isEmpty(parent)) {
+							File file = new File("./generatedswaggersubfiles", (parent != "" ? parent + "_" : "")
+									+ key.substring(0, 1).toLowerCase() + key.substring(1, key.length()) + ".json");
+							if (!file.exists()) {
+								saveObjectDefintion(jObject.getJSONObject(key), file);
+							}
+						}
+
 					}
 				}
 			} else if (jObject.get(key) instanceof JSONArray && key.equals("allOf")) {
@@ -164,7 +192,7 @@ public class Swagger2JSONFormsBridge {
 		JSONArray elementsArray = new JSONArray();
 		while (keys.hasNext()) {
 			String key = keys.next();
-			System.out.println(fileName + " has a key " + key);
+			// System.out.println(fileName + " has a key " + key);
 			JSONObject JSONUISchemaItem = new JSONObject();
 			JSONUISchemaItem.put("type", "Control");
 			JSONUISchemaItem.put("label", capitaliseFirstLetter(splitCamelCase(key)));
@@ -179,12 +207,14 @@ public class Swagger2JSONFormsBridge {
 			throws JSONException, IOException {
 		Iterator<String> keys = jObject.keys();
 		JSONObject editedOne = new JSONObject(jObject, JSONObject.getNames(jObject));
+
 		while (keys.hasNext()) {
 			String key = keys.next();
-			System.out.println(fileName + " has a key " + key);
+
 			if (jObject.get(key) instanceof JSONObject) {
 				if (((JSONObject) jObject.get(key)).has("$ref")) {
-					System.out.println(fileName + " " + ((JSONObject) jObject.get(key)).get("$ref"));
+					// System.out.println(fileName + " " + ((JSONObject)
+					// jObject.get(key)).get("$ref"));
 					String ref = (String) ((JSONObject) jObject.get(key)).get("$ref");
 					String replacerFileName = ".\\generatedswaggersubfiles\\"
 							+ ref.split("/")[ref.split("/").length - 1] + ".json";
@@ -196,6 +226,15 @@ public class Swagger2JSONFormsBridge {
 				JSONObject subJObject = editedOne.getJSONObject(key);
 				subJObject = iteratOverGeneratedFilesAndReplaceReferences(subJObject, fileName);
 				editedOne.put(key, subJObject);
+			} else if (key.equals("$ref")) {
+				System.out.println(jObject);
+				String ref = (String) jObject.get(key);
+				String replacerFileName = ".\\generatedswaggersubfiles\\" + ref.split("/")[ref.split("/").length - 1]
+						+ ".json";
+				String contents = filesAndContent.get(replacerFileName);
+				JSONObject replacerJObject = new JSONObject(contents);
+				replacerJObject = iteratOverGeneratedFilesAndReplaceReferences(replacerJObject, fileName);
+				editedOne = replacerJObject;
 			}
 		}
 		return editedOne;

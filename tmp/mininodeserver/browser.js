@@ -300,7 +300,7 @@ window.generateModel = function() {
   }
 );
 window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
-
+console.log(window.store1);
 window.store2 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
 		  {
@@ -532,23 +532,35 @@ store27.dispatch(Actions.init( window.modelMath.exposure, schema27, uischema27))
 window.toBeReplacedMap["Exposure"] = store27;
 
 try{
-ReactDOM.render(React.createFactory(Provider)({store: store1},
+ReactDOM.render(React.createFactory(Provider)({'store': window.store1},
 		App()
 ), document.getElementById('generalinformation'));
-ReactDOM.render(React.createFactory(Provider)({store: window.store2},
+}catch(err){
+	console.log("generalinformation " + err);
+
+}
+try{
+ReactDOM.render(React.createFactory(Provider)({'store': window.store2},
 		App()
 ), document.getElementById('scope'));
+}catch(err){console.log("scope " + err);
 
-ReactDOM.render(React.createFactory(Provider)({store: store6},
+}
+try{
+ReactDOM.render(React.createFactory(Provider)({'store': window.store6},
 		App()
 ), document.getElementById('databackground'));
+}catch(err){console.log("databackground " + err);
 
-ReactDOM.render(React.createFactory(Provider)({store: store17},
+}
+try{
+ReactDOM.render(React.createFactory(Provider)({'store': window.store17},
 		App()
 ), document.getElementById('modelMath'));
 }catch(err){console.log("modelMath " + err);
-	
+
 }
+
 
 notAProperDiv = $("div:contains('No applicable'):not(:has(div))");
 
