@@ -300,7 +300,7 @@ window.generateModel = function() {
   }
 );
 window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
-console.log(window.store1);
+//console.log(window.store1);
 window.store2 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
 		  {
@@ -420,9 +420,15 @@ store8.dispatch(Actions.init(window.dataBackground.studySample, window.schema8, 
 		    }
 		  }
 		);
-  window.store13.dispatch(Actions.init({}, window.schema13, window.uischema13));
-  window.toBeReplacedMap["modelCategory"] = window.store13;
-
+ 
+ if(window.generalInformation["modelCategory"]){
+	
+	 window.store13.dispatch(Actions.init(window.generalInformation["modelCategory"], window.schema13, window.uischema13));
+	 window.toBeReplacedMap["modelCategory"] = window.store13;
+ }else{
+	 window.store13.dispatch(Actions.init({}, window.schema13, window.uischema13));
+	 window.toBeReplacedMap["modelCategory"] = window.store13;
+ }
 
 window.store17 = createStore(
 		  combineReducers({ jsonforms: jsonformsReducer() }),  
@@ -524,9 +530,7 @@ store27 = createStore(
 		    }
 		  }
 		);
-if(window.modelMath.exposure == null){
-	 window.modelMath.exposure = {}
-}
+
 
 store27.dispatch(Actions.init( window.modelMath.exposure, schema27, uischema27));
 window.toBeReplacedMap["Exposure"] = store27;
@@ -536,28 +540,28 @@ ReactDOM.render(React.createFactory(Provider)({'store': window.store1},
 		App()
 ), document.getElementById('generalinformation'));
 }catch(err){
-	console.log("generalinformation " + err);
+	//console.log("generalinformation " + err);
 
 }
 try{
 ReactDOM.render(React.createFactory(Provider)({'store': window.store2},
 		App()
 ), document.getElementById('scope'));
-}catch(err){console.log("scope " + err);
+}catch(err){//console.log("scope " + err);
 
 }
 try{
 ReactDOM.render(React.createFactory(Provider)({'store': window.store6},
 		App()
 ), document.getElementById('databackground'));
-}catch(err){console.log("databackground " + err);
+}catch(err){//console.log("databackground " + err);
 
 }
 try{
 ReactDOM.render(React.createFactory(Provider)({'store': window.store17},
 		App()
 ), document.getElementById('modelMath'));
-}catch(err){console.log("modelMath " + err);
+}catch(err){////console.log("modelMath " + err);
 
 }
 
@@ -572,7 +576,7 @@ $.each(notAProperDiv, function( index, value ) {
 			
 			parentxc = value.parentNode;
 			areaName =  parentxc.firstChild.textContent;
-			console.log("No applicable",areaName);
+			//console.log("No applicable",areaName);
 			if(parentxc.firstChild.textContent.indexOf('*') >= 0){
 				areaName = areaName.slice(0,-1);
 			}
@@ -593,7 +597,7 @@ $.each(notAProperDiv, function( index, value ) {
 				), document.getElementById(areaName));
 			}
 	}catch(err){
-		console.log("loop ",parentxc, err);
+		//console.log("loop ",parentxc, err);
 	}
 	
 });
@@ -689,14 +693,14 @@ try{
 ReactDOM.render(React.createFactory(Provider)({store: window.store22},
 		App()
 ), document.getElementById('referenceModelContent'));
-}catch(err){console.log("reference " + err);
+}catch(err){//console.log("reference " + err);
 	
 }
 
 parent9 = document.getElementById('scope');
 
 window.saveCreator = function () {
-	//console.log(store24.getState().jsonforms.core.data);
+	////console.log(store24.getState().jsonforms.core.data);
 	if(window.generalInformation.creator == undefined){
 		window.generalInformation.creator = [];
 		window.generalInformation.creator.push(store24.getState().jsonforms.core.data);
@@ -705,7 +709,7 @@ window.saveCreator = function () {
 		window.generalInformation.creator.push(store24.getState().jsonforms.core.data);
 		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
-	//console.log("date ",window.generalInformation.modificationDate);
+	////console.log("date ",window.generalInformation.modificationDate);
 		$(".table tbody tr td div div div input").removeAttr('class');
 		tableInputBootstraping($(".table tbody tr td div div div input"));
 	    $(".table tbody tr td div div div").removeAttr('class');
@@ -740,7 +744,7 @@ $(parent8).append(
         "      <div id='creatorModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveCreator()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -751,12 +755,12 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: store24},
 		App()
 ), document.getElementById('creatorModelContent'));
-}catch(err){console.log("modificationDate " + err);
+}catch(err){//console.log("modificationDate " + err);
 	
 }
 
 window.saveAuthor = function () {
-	console.log(store23.getState().jsonforms.core.data);
+	//console.log(store23.getState().jsonforms.core.data);
 	if(window.generalInformation.author == undefined){
 		window.generalInformation.author = [];
 		window.generalInformation.author.push(store23.getState().jsonforms.core.data);
@@ -765,7 +769,7 @@ window.saveAuthor = function () {
 		window.generalInformation.author.push(store23.getState().jsonforms.core.data);
 		window.store1.dispatch(Actions.init(window.generalInformation, window.schema, window.uischema));
 	}
-	//console.log("date ",window.generalInformation.modificationDate);
+	////console.log("date ",window.generalInformation.modificationDate);
 		$(".table tbody tr td div div div input").removeAttr('class');
 		tableInputBootstraping($(".table tbody tr td div div div input"));
 	    $(".table tbody tr td div div div").removeAttr('class');
@@ -800,7 +804,7 @@ $(parent8).append(
         "      <div id='authorModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveAuthor()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -811,7 +815,7 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: store23},
 		App()
 ), document.getElementById('authorModelContent'));
-}catch(err){console.log("modificationDate " + err);
+}catch(err){//console.log("modificationDate " + err);
 	
 }
 
@@ -861,7 +865,7 @@ $(parent9).append(
         "      <div id='productModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveProduct()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -875,7 +879,7 @@ try{
 	
 	
 parent10 = document.getElementById('modelMath');
-}catch(err){console.log("product " + err);
+}catch(err){//console.log("product " + err);
 	
 }
 //popup hazard
@@ -923,7 +927,7 @@ $(parent9).append(
         "      <div id='hazardModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.savehazard()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -935,7 +939,7 @@ try{
 		App()
 ), document.getElementById('hazardModelContent'));
 parent10 = document.getElementById('modelMath');
-}catch(err){console.log("hazard " + err);
+}catch(err){//console.log("hazard " + err);
 	
 }
 
@@ -985,7 +989,7 @@ $(parent10).append(
         "      <div id='parameterModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveParameter()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -996,7 +1000,7 @@ try{
 ReactDOM.render(React.createFactory(Provider)({store: window.store18},
 		App()
 ), document.getElementById('parameterModelContent'));
-}catch(err){console.log("parameter " + err);
+}catch(err){//console.log("parameter " + err);
 	
 }
 window.saveModelequation = function () {
@@ -1042,7 +1046,7 @@ $(parent10).append(
         "      <div id='modelequationModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveModelequation()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -1053,7 +1057,7 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: window.store19},
 		App()
 ), document.getElementById('modelequationModelContent'));
-}catch(err){console.log("modelequation " + err);
+}catch(err){//console.log("modelequation " + err);
 	
 }
 
@@ -1103,7 +1107,7 @@ $(parent11).append(
         "      <div id='studySampleModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveStudySample()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -1114,8 +1118,8 @@ try{
 	ReactDOM.render(React.createFactory(Provider)({store: window.store29},
 		App()
 ), document.getElementById('studySampleModelContent'));
-}catch(err){console.log("event " + err);
-	console.log("studySampleModelContent " + err);
+}catch(err){//console.log("event " + err);
+	//console.log("studySampleModelContent " + err);
 }
 
 
@@ -1164,7 +1168,7 @@ $(parent11).append(
         "      <div id='dietaryAssessmentMethodModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveDietaryAssessmentMethod()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -1176,7 +1180,7 @@ try{
 		App()
 ), document.getElementById('dietaryAssessmentMethodModelContent'));
 }catch(err){//
-	console.log("dietaryAssessmentMethodModelContent " + err);
+	//console.log("dietaryAssessmentMethodModelContent " + err);
 }
 
 
@@ -1225,7 +1229,7 @@ $(parent11).append(
         "      <div id='laboratoryModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveLaboratory()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -1237,7 +1241,7 @@ try{
 		App()
 ), document.getElementById('laboratoryModelContent'));
 }catch(err){
-	//console.log("laboratoryModelContent" + err);
+	////console.log("laboratoryModelContent" + err);
 }
 
 
@@ -1285,7 +1289,7 @@ $(parent11).append(
         "      <div id='assayModelContent' class='modal-body'>\n" + 
         "      </div>\n" + 
         "      <div class='modal-footer'>\n" + 
-        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancle</button>\n" + 
+        "        <button type='button' class='btn btn-default' data-dismiss='modal'>cancel</button>\n" + 
         "   	 <button id='save' onclick='window.saveAssay()' class='btn btn-width bkgrnd-cyan save-details' data-dismiss='modal' type='button' name='save-details'>Save</button>" + 
         "      </div>\n" + 
         "    </div>\n" + 
@@ -1297,7 +1301,7 @@ try{
 		App()
 ), document.getElementById('assayModelContent'));
 }catch(err){
-	console.log("assayModelContent" + err);
+	//console.log("assayModelContent" + err);
 }
 
 //popup populationGroup
@@ -1311,8 +1315,8 @@ window.store5 = createStore(
 		  }
 		);
 window.store5.dispatch(Actions.init({}, window.schema5, window.uischema5));
-window.store5.getState().jsonforms.core.data.populationName = window.store5.getState().jsonforms.core.data.populationName != null ?window.store5.getState().jsonforms.core.data.populationName:"";
-window.store5.getState().jsonforms.core.data.targetPopulation = window.store5.getState().jsonforms.core.data.targetPopulation != null ?window.store5.getState().jsonforms.core.data.targetPopulation:"";
+//window.store5.getState().jsonforms.core.data.populationName = window.store5.getState().jsonforms.core.data.populationName != null ?window.store5.getState().jsonforms.core.data.populationName:"";
+//window.store5.getState().jsonforms.core.data.targetPopulation = window.store5.getState().jsonforms.core.data.targetPopulation != null ?window.store5.getState().jsonforms.core.data.targetPopulation:"";
 
 window.savepopulationGroup = function () {
 	
@@ -1371,6 +1375,6 @@ ReactDOM.render(React.createFactory(Provider)({store: window.store5},
 		App()
 ), document.getElementById('populationGroupModelContent'));
 }catch(err){
-	console.log("populationGroupModelContent",err);
+	//console.log("populationGroupModelContent",err);
 }
 }();

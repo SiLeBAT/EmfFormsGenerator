@@ -9,32 +9,47 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javax.jws.soap.SOAPBinding;
-
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.mortbay.util.ajax.JSON;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang3.StringUtils;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
+import io.swagger.models.Swagger;
+import io.swagger.parser.SwaggerParser;
+import io.swagger.util.Yaml;
 
 public class Swagger2JSONFormsBridge {
 	static Map<String, String> filesAndContent = new Hashtable<String, String>();
+	static String  convertYamlToJson(String yaml) throws JsonParseException, JsonMappingException, IOException {
+	    ObjectMapper yamlReader = new ObjectMapper(new YAMLFactory());
+	    Object obj = yamlReader.readValue(yaml, Object.class);
 
-	public static void main(String[] args) {
+	    ObjectMapper jsonWriter = new ObjectMapper();
+	    return jsonWriter.writeValueAsString(obj);
+	}
+	public static void main(String[] args)  {
 
-		File jsonFile = new File("./swagger.json");
+		Swagger swagger = new SwaggerParser().read("./model.yaml");
+		//File jsonFile = new File("./swagger.json");
 
 		try {
 			FileUtils.cleanDirectory(new File("./generatedswaggersubfiles"));
 			FileUtils.cleanDirectory(new File("./generatedswaggermainfiles"));
-			String contents = new String(Files.readAllBytes(jsonFile.toPath()));
+			String yaml = Yaml.mapper().writeValueAsString(swagger);
+			System.out.println();
+			//String contents = new String(Files.readAllBytes(jsonFile.toPath()));
+			String contents = convertYamlToJson(yaml);
+
 			JSONObject jObject = new JSONObject(contents).getJSONObject("definitions");
 			// First step to extract JSON Object into Files
 			iteratOverJSONObject("", "Root", jObject, false, "");

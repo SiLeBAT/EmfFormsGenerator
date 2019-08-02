@@ -57,10 +57,7 @@ public class App {
 		File inFile = new File(
 				"../FSK-Lab/de.bund.bfr.knime.fsklab.nodes/js-src/de/bund/bfr/knime/fsklab/nodes/joiner/emfbundle/bundle.js");
 		String content = IOUtils.toString(new FileInputStream(inFile), "UTF8");
-		String contentx = content.replaceAll("var _ = require(\"lodash\");", "var _ = window.lodash;");
-		String contentmore = contentx.replaceAll("var punycode = require('punycode');",
-				"var punycode  = window.punycode;");
-		String dar = contentmore.replaceAll(
+		String dar = content.replaceAll(
 				Pattern.quote(
 						"if (typeof console !== 'undefined') {\n" + "        console.error(message);\n" + "      }"),
 				"");

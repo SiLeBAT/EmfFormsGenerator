@@ -1,1 +1,1 @@
-{"additionalProperties":false,"type":"object","properties":{"modelType":{"type":"string"}},"required":["modelType"],"discriminator":"modelType"}
+{"additionalProperties":false,"type":"object","required":["modelType"],"properties":{"modelType":{"type":"string"}},"discriminator":"modelType"}
