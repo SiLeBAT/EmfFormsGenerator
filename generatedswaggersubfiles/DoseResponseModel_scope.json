@@ -1,1 +1,0 @@
-{"additionalProperties":false,"type":"object","properties":{"spatialInformation":{"type":"string"},"populationGroup":{"type":"array","items":{"$ref":"#/definitions/PopulationGroup"}},"hazard":{"type":"array","items":{"$ref":"#/definitions/Hazard"}},"generalComment":{"type":"string"},"temporalInformation":{"type":"string"}},"required":["hazard","populationGroup"]}
