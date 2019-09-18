@@ -1,7 +1,5 @@
 package de.bund.bfr.knime.fsklab.nodeengine.java2node;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -26,9 +24,10 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 public class Swagger2JSONFormsBridge {
-    static Map<String, String> filesAndContent = new Hashtable<String, String>();
 
-    static String convertYamlToJson(String yaml) throws JsonParseException, JsonMappingException, IOException {
+    private static Map<String, String> filesAndContent = new Hashtable<>();
+
+    private static String convertYamlToJson(String yaml) throws IOException {
         ObjectMapper yamlReader = new ObjectMapper(new YAMLFactory());
         Object obj = yamlReader.readValue(yaml, Object.class);
 
@@ -78,7 +77,7 @@ public class Swagger2JSONFormsBridge {
                         try {
                             // TODO: The file could be read directly with the mapper but order could lost. Check later.
                             String firstGeneratedContent = FileUtils.readFileToString(path.toFile());
-                            JsonNode changedJsonObject = iterateOverGeneratedFilesAndReplaceReferences(Yaml.mapper().readTree(firstGeneratedContent), path.toString());
+                            JsonNode changedJsonObject = iterateOverGeneratedFilesAndReplaceReferences(Yaml.mapper().readTree(firstGeneratedContent));
 
                             String fileNameWithOutExt = FilenameUtils.removeExtension(path.getFileName().toString());
                             File f = new File("./generatedswaggermainfiles", fileNameWithOutExt + "Model.json");
@@ -96,7 +95,6 @@ public class Swagger2JSONFormsBridge {
             }
 
             // generate the model and view schema for JSON Forms
-
             try (Stream<Path> walk = Files.walk(Paths.get("./generatedswaggermainfiles"))) {
 
                 walk.forEach(path -> {
@@ -105,7 +103,7 @@ public class Swagger2JSONFormsBridge {
                             String firstGeneratedContent = FileUtils.readFileToString(path.toFile());
                             JsonNode originalJsonObject = Yaml.mapper().readTree(firstGeneratedContent);
                             if (originalJsonObject.has("properties")) {
-                                ObjectNode changedJsonObject = generateUISchema((ObjectNode) originalJsonObject.get("properties"), path.toString());
+                                ObjectNode changedJsonObject = generateUISchema((ObjectNode) originalJsonObject.get("properties"));
                                 String fileNameWithOutExt = FilenameUtils
                                         .removeExtension(path.getFileName().toString());
                                 File f = new File("./generatedswaggermainfiles",
@@ -167,7 +165,7 @@ public class Swagger2JSONFormsBridge {
                             if (!StringUtils.isEmpty(parent)) {
                                 File definitionFile = new File("./generatedswaggersubfiles",
                                         parent + "_" + objectName.substring(0, 1).toLowerCase()
-                                                + objectName.substring(1, objectName.length()) + ".json");
+                                                + objectName.substring(1) + ".json");
                                 FileUtils.writeStringToFile(definitionFile, jObject.toString());
                             } else {
                                 File definitionFile = new File("./generatedswaggersubfiles", objectName + ".json");
@@ -175,8 +173,8 @@ public class Swagger2JSONFormsBridge {
                             }
                         }
                     } else if (!StringUtils.isEmpty(parent)) {
-                        File file = new File("./generatedswaggersubfiles", (parent != "" ? parent + "_" : "")
-                                + key.substring(0, 1).toLowerCase() + key.substring(1, key.length()) + ".json");
+                        File file = new File("./generatedswaggersubfiles", (!parent.isEmpty()  ? parent + "_" : "")
+                                + key.substring(0, 1).toLowerCase() + key.substring(1) + ".json");
                         if (!file.exists()) {
                             FileUtils.writeStringToFile(file, jObject.get(key).toString());
                         }
@@ -188,7 +186,7 @@ public class Swagger2JSONFormsBridge {
         }
     }
 
-    public static ObjectNode generateUISchema(ObjectNode jObject, String filename) {
+    public static ObjectNode generateUISchema(ObjectNode jObject) {
 
         Iterator<String> keys = jObject.fieldNames();
         ArrayNode elementsArray = Yaml.mapper().createArrayNode();
@@ -209,7 +207,7 @@ public class Swagger2JSONFormsBridge {
         return schema;
     }
 
-    private static JsonNode iterateOverGeneratedFilesAndReplaceReferences(JsonNode jObject, String filename) throws IOException {
+    private static JsonNode iterateOverGeneratedFilesAndReplaceReferences(JsonNode jObject) throws IOException {
 
         Iterator<String> keys = jObject.fieldNames();
         ObjectNode editedOne = jObject.deepCopy();
@@ -228,7 +226,7 @@ public class Swagger2JSONFormsBridge {
                     editedOne.set(key, replacerJObject);
                 }
                 JsonNode subJObject = editedOne.get(key);
-                subJObject = iterateOverGeneratedFilesAndReplaceReferences(subJObject, filename);
+                subJObject = iterateOverGeneratedFilesAndReplaceReferences(subJObject);
                 editedOne.set(key, subJObject);
             } else if (key.equals("$ref")) {
                 System.out.println(jObject);
@@ -237,7 +235,7 @@ public class Swagger2JSONFormsBridge {
                         + ".json";
                 String contents = filesAndContent.get(replacerFileName);
                 JsonNode replacerJObject = Yaml.mapper().readTree(contents);
-                replacerJObject = iterateOverGeneratedFilesAndReplaceReferences(replacerJObject, filename);
+                replacerJObject = iterateOverGeneratedFilesAndReplaceReferences(replacerJObject);
                 editedOne = (ObjectNode) replacerJObject;
             }
         }
@@ -259,16 +257,16 @@ public class Swagger2JSONFormsBridge {
         }
     }
 
-    static String splitCamelCase(String s) {
+    private static String splitCamelCase(String s) {
         return s.replaceAll(String.format("%s|%s|%s", "(?<=[A-Z])(?=[A-Z][a-z])", "(?<=[^A-Z])(?=[A-Z])",
                 "(?<=[A-Za-z])(?=[^A-Za-z])"), " ");
     }
 
-    static String capitaliseFirstLetter(String name) {
+    private static String capitaliseFirstLetter(String name) {
         return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
-    public static String replaceLast(String text, String regex, String replacement) {
+    private static String replaceLast(String text, String regex, String replacement) {
         return text.replaceFirst("(?s)(.*)" + regex, "$1" + replacement);
     }
 }
