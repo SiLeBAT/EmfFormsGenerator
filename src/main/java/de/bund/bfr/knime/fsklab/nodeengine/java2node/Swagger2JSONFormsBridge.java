@@ -95,24 +95,24 @@ public class Swagger2JSONFormsBridge {
                         try {
 
                             // AHMAD ...
-                            String firstGeneratedContent = new String(Files.readAllBytes(path));
-                            JSONObject changedJSONObject = iteratOverGeneratedFilesAndReplaceReferences(
-                                    new JSONObject(firstGeneratedContent), path.toString());
-                            // System.out.println(path.getFileName().toString());
-
-                            String fileNameWithOutExt = FilenameUtils.removeExtension(path.getFileName().toString());
-                            File f = new File("./generatedswaggermainfiles", fileNameWithOutExt + "Model.json");
-                            saveObjectDefintion(changedJSONObject, f);
-                            // .........................................................................................
-
-                            // MIGUEL
-//                            // TODO: The file could be read directly with the mapper but order could lost. Check later.
-//                            String firstGeneratedContent = FileUtils.readFileToString(path.toFile());
-//                            JsonNode changedJsonObject = iterateOverGeneratedFilesAndReplaceReferences(Yaml.mapper().readTree(firstGeneratedContent), path.toString());
+//                            String firstGeneratedContent = new String(Files.readAllBytes(path));
+//                            JSONObject changedJSONObject = iteratOverGeneratedFilesAndReplaceReferences(
+//                                    new JSONObject(firstGeneratedContent), path.toString());
+//                            // System.out.println(path.getFileName().toString());
 //
 //                            String fileNameWithOutExt = FilenameUtils.removeExtension(path.getFileName().toString());
 //                            File f = new File("./generatedswaggermainfiles", fileNameWithOutExt + "Model.json");
-//                            FileUtils.writeStringToFile(f, changedJsonObject.toString());
+//                            saveObjectDefintion(changedJSONObject, f);
+                            // .........................................................................................
+
+                            // MIGUEL
+                            // TODO: The file could be read directly with the mapper but order could lost. Check later.
+                            String firstGeneratedContent = FileUtils.readFileToString(path.toFile());
+                            JsonNode changedJsonObject = iterateOverGeneratedFilesAndReplaceReferences(Yaml.mapper().readTree(firstGeneratedContent), path.toString());
+
+                            String fileNameWithOutExt = FilenameUtils.removeExtension(path.getFileName().toString());
+                            File f = new File("./generatedswaggermainfiles", fileNameWithOutExt + "Model.json");
+                            FileUtils.writeStringToFile(f, changedJsonObject.toString());
                             // .........................................................................................
 
                         } catch (IOException e) {
@@ -134,31 +134,31 @@ public class Swagger2JSONFormsBridge {
                     if (path.toFile().isFile()) {
                         try {
                             // AHMAD
-                            String firstGeneratedContent = new String(Files.readAllBytes(path));
-                            System.out.println(path.getFileName().toString());
-                            JSONObject originalJSONObject = new JSONObject(firstGeneratedContent);
-                            if (originalJSONObject.has("properties")) {
-                                JSONObject changedJSONObject = generateUISchema(
-                                        originalJSONObject.getJSONObject("properties"), path.toString());
-                                String fileNameWithOutExt = FilenameUtils
-                                        .removeExtension(path.getFileName().toString());
-                                File f = new File("./generatedswaggermainfiles",
-                                        replaceLast(fileNameWithOutExt, "Model", "") + "View.json");
-                                saveObjectDefintion(changedJSONObject, f);
-                            }
-                            // .........................................................................................
-
-                            // MIGUEL
-//                            String firstGeneratedContent = FileUtils.readFileToString(path.toFile());
-//                            JsonNode originalJsonObject = Yaml.mapper().readTree(firstGeneratedContent);
-//                            if (originalJsonObject.has("properties")) {
-//                                ObjectNode changedJsonObject = generateUISchema((ObjectNode) originalJsonObject.get("properties"), path.toString());
+//                            String firstGeneratedContent = new String(Files.readAllBytes(path));
+//                            System.out.println(path.getFileName().toString());
+//                            JSONObject originalJSONObject = new JSONObject(firstGeneratedContent);
+//                            if (originalJSONObject.has("properties")) {
+//                                JSONObject changedJSONObject = generateUISchema(
+//                                        originalJSONObject.getJSONObject("properties"), path.toString());
 //                                String fileNameWithOutExt = FilenameUtils
 //                                        .removeExtension(path.getFileName().toString());
 //                                File f = new File("./generatedswaggermainfiles",
 //                                        replaceLast(fileNameWithOutExt, "Model", "") + "View.json");
-//                                FileUtils.writeStringToFile(f, changedJsonObject.toString());
+//                                saveObjectDefintion(changedJSONObject, f);
 //                            }
+                            // .........................................................................................
+
+                            // MIGUEL
+                            String firstGeneratedContent = FileUtils.readFileToString(path.toFile());
+                            JsonNode originalJsonObject = Yaml.mapper().readTree(firstGeneratedContent);
+                            if (originalJsonObject.has("properties")) {
+                                ObjectNode changedJsonObject = generateUISchema((ObjectNode) originalJsonObject.get("properties"), path.toString());
+                                String fileNameWithOutExt = FilenameUtils
+                                        .removeExtension(path.getFileName().toString());
+                                File f = new File("./generatedswaggermainfiles",
+                                        replaceLast(fileNameWithOutExt, "Model", "") + "View.json");
+                                FileUtils.writeStringToFile(f, changedJsonObject.toString());
+                            }
                             // .........................................................................................
                         } catch (Exception e) {
                             System.out.println(path.getFileName().toString());
