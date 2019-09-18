@@ -1,1 +1,10 @@
+# IDEA project files
+.idea
+
+# Maven target
 /target/
+
+# Generated JSON files
+generatedswaggermainfiles/*
+generatedswaggersubfiles/*
+
