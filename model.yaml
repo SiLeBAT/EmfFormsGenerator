@@ -44,31 +44,44 @@ definitions:
     properties:
       title:
         type: string
+        description: Specifies the job title, functional position or function of the individual associated.
       familyName:
         type: string
+        description: Family name or surname.
       givenName:
         type: string
+        description: Given name
       email:
         type: string
         format: email
+        description: The address for electornic mail communication.
       telephone:
         type: string
+        description: The canonical number string for a telephone number for telephony communication.
       streetAddress:
         type: string
+        description: Physical delivery address.
       country:
         type: string
+        description: Full name of the country in English.
       zipCode:
         type: string
+        description: Postal code.
       region:
         type: string
+        description: State or province.
       timeZone:
         type: string
+        description: Time zone.
       gender:
         type: string
+        description: Sex and gender identity. M (male), F (female), O (other), N (none or not applicable) and U (unknown).
       note:
         type: string
+        description: Supplemental information or a comment.
       organization:
         type: string
+        description: Organization information.
     required:
      - email
 
@@ -685,9 +698,10 @@ definitions:
           $ref: '#/definitions/PopulationGroup'
       generalComment:
         type: string
+        description: General comments on the scope of the study, data or model
       temporalInformation:
         type: string
-        description: General comments on the scope of the study, data or model 
+        description: Temporal information on which the model or data applies. An interval of time that is named or defined by its start and end dates (period of study).
       spatialInformation:
         type: array
         description: Spatial information (area) on which the model or data applies
